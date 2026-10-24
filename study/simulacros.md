@@ -102,9 +102,9 @@ Q 13. ¿Qué propiedad debe tener B para calcular B⁻¹?
 
 O A) Ser siempre la identidad
 
-O B) Ser no singular
+O B) Tener todas sus entradas positivas
 
-O C) Tener todas sus entradas positivas
+O C) Ser no singular
 
 Q 14. ¿Qué debe ser lineal en un programa lineal?
 
@@ -140,9 +140,9 @@ O C) max, restricciones ≤ y variables no negativas
 
 Q 18. Max, base factible del original, rj = −3, yj = (0,−5). ¿Qué se detecta?
 
-O A) Objetivo no acotado
+O A) Infactibilidad
 
-O B) Infactibilidad
+O B) Objetivo no acotado
 
 O C) Óptimo único
 
@@ -232,9 +232,9 @@ Q 9. ¿Qué matriz aparece en las restricciones duales de la pareja simétrica?
 
 O A) La identidad siempre
 
-O B) Aᵀ
+O B) A⁻¹ siempre
 
-O C) A⁻¹ siempre
+O C) Aᵀ
 
 Q 10. ¿Qué es la región factible geométricamente?
 
@@ -640,15 +640,15 @@ A C) Correcta: 5 variables y 3 restricciones.
 
 A Guía, apartado 11.
 
-Q 13. Correcta: B. ¿Qué propiedad debe tener B para calcular B⁻¹?
+Q 13. Correcta: C. ¿Qué propiedad debe tener B para calcular B⁻¹?
 
 La independencia de columnas garantiza inversa; ni positividad de entradas ni identidad son requisitos generales.
 
 A A) Incorrecta: «Ser siempre la identidad». La independencia de columnas garantiza inversa; ni positividad de entradas ni identidad son requisitos generales.
 
-A B) Correcta: Ser no singular.
+A B) Incorrecta: «Tener todas sus entradas positivas». La independencia de columnas garantiza inversa; ni positividad de entradas ni identidad son requisitos generales.
 
-A C) Incorrecta: «Tener todas sus entradas positivas». La independencia de columnas garantiza inversa; ni positividad de entradas ni identidad son requisitos generales.
+A C) Correcta: Ser no singular.
 
 A Guía, apartado 07.
 
@@ -688,7 +688,7 @@ A B) Incorrecta: «Solo una variable es entera y todas las demás continuas». P
 
 A C) Correcta: Todas las variables de decisión están sujetas a integridad.
 
-A Guía, apartado 14.
+A Guía, apartado 15.
 
 Q 17. Correcta: C. Según los apuntes, ¿qué caracteriza la forma canónica de maximización?
 
@@ -702,13 +702,13 @@ A C) Correcta: max, restricciones ≤ y variables no negativas.
 
 A Guía, apartado 05.
 
-Q 18. Correcta: A. Max, base factible del original, rj = −3, yj = (0,−5). ¿Qué se detecta?
+Q 18. Correcta: B. Max, base factible del original, rj = −3, yj = (0,−5). ¿Qué se detecta?
 
 Hay mejora porque rj<0 y ninguna componente positiva de yj limita el paso. Se puede crecer indefinidamente.
 
-A A) Correcta: Objetivo no acotado.
+A A) Incorrecta: «Infactibilidad». Hay mejora porque rj<0 y ninguna componente positiva de yj limita el paso. Se puede crecer indefinidamente.
 
-A B) Incorrecta: «Infactibilidad». Hay mejora porque rj<0 y ninguna componente positiva de yj limita el paso. Se puede crecer indefinidamente.
+A B) Correcta: Objetivo no acotado.
 
 A C) Incorrecta: «Óptimo único». Hay mejora porque rj<0 y ninguna componente positiva de yj limita el paso. Se puede crecer indefinidamente.
 
@@ -736,7 +736,7 @@ A B) Incorrecta: «Todas las variables son binarias». El modelo mixto combina d
 
 A C) Correcta: Hay variables enteras y variables continuas.
 
-A Guía, apartado 14.
+A Guía, apartado 15.
 ---PAGE---
 # Solucionario 2 · preguntas 1–5
 
@@ -786,7 +786,7 @@ A B) Incorrecta: «Todos los enteros no negativos». Una binaria solo tiene dos 
 
 A C) Correcta: {0,1}.
 
-A Guía, apartado 14.
+A Guía, apartado 15.
 
 Q 5. Correcta: B. ¿Qué ocurre al dualizar dos veces bajo las convenciones correspondientes?
 
@@ -838,15 +838,15 @@ A C) Incorrecta: «(16,54)». Se resuelve 2xB1=8 y 3xB2=18: xB=(4,6). No se usa 
 
 A Guía, apartado 07.
 
-Q 9. Correcta: B. ¿Qué matriz aparece en las restricciones duales de la pareja simétrica?
+Q 9. Correcta: C. ¿Qué matriz aparece en las restricciones duales de la pareja simétrica?
 
 La correspondencia entre filas y columnas produce la transpuesta; A puede no ser cuadrada ni invertible.
 
 A A) Incorrecta: «La identidad siempre». La correspondencia entre filas y columnas produce la transpuesta; A puede no ser cuadrada ni invertible.
 
-A B) Correcta: Aᵀ.
+A B) Incorrecta: «A⁻¹ siempre». La correspondencia entre filas y columnas produce la transpuesta; A puede no ser cuadrada ni invertible.
 
-A C) Incorrecta: «A⁻¹ siempre». La correspondencia entre filas y columnas produce la transpuesta; A puede no ser cuadrada ni invertible.
+A C) Correcta: Aᵀ.
 
 A Guía, apartado 11.
 
@@ -972,7 +972,7 @@ A B) Incorrecta: «x = 4,6 en ambas». Suelo=4, techo=5; excluir 5 perdería pos
 
 A C) Correcta: x ≤ 4 y x ≥ 5.
 
-A Guía, apartado 14.
+A Guía, apartado 15.
 
 Q 20. Correcta: A. xB = (8,18), yj = (2,3). ¿Qué paso máximo permite la regla de salida?
 
@@ -1184,7 +1184,7 @@ A B) Correcta: Superior al óptimo entero.
 
 A C) Incorrecta: «Ninguna relación». El conjunto relajado contiene al entero, por lo que su máximo no es menor.
 
-A Guía, apartado 14.
+A Guía, apartado 15.
 
 Q 17. Correcta: B. ¿Puede un punto de intersección de dos rectas ser infactible?
 

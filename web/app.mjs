@@ -62,7 +62,7 @@ function home(){
  main.querySelectorAll('[data-difficulty]').forEach(b=>b.onclick=()=>{config.difficulty=b.dataset.difficulty;home();});
 }
 function currentQuestion(){return bank.questions.find(q=>q.id===session.items[session.index].questionId);}
-function reference(q){const sec=Number(q.reference.match(/apartado (\d+)/)?.[1]||3);const page={3:5,4:6,5:7,6:8,7:10,8:11,10:13,11:14,13:16,14:17}[sec]||5;return `<a class="reference" href="./guia-programacion-lineal.pdf#page=${page}" target="_blank" rel="noopener">${escape(q.reference)} · abrir PDF ↗</a>`;}
+function reference(q){const sec=Number(q.reference.match(/apartado (\d+)/)?.[1]||3);const page={3:5,4:6,5:7,6:8,7:10,8:11,10:13,11:14,12:15,13:16,14:17,15:18}[sec]||5;return `<a class="reference" href="./guia-programacion-lineal.pdf#page=${page}" target="_blank" rel="noopener">${escape(q.reference)} · abrir PDF ↗</a>`;}
 function sessionView(){
  if(!session){navigate('home');return;}if(session.finished){screen='results';results();return;}
  const q=currentQuestion(),item=session.items[session.index],selected=session.answers[q.id],checked=session.mode!=='exam'&&session.checked[q.id];

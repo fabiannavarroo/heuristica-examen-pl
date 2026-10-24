@@ -4301,7 +4301,7 @@
         "a": "Incorrecta. El sobrante es holgura y el beneficio total es el valor objetivo; el precio sombra mide sensibilidad marginal.",
         "b": "Incorrecta. El sobrante es holgura y el beneficio total es el valor objetivo; el precio sombra mide sensibilidad marginal."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "concepto"
     },
     {
@@ -4330,7 +4330,7 @@
         "a": "Incorrecta. La base o estructura óptima puede cambiar; actividad no garantiza validez global de una pendiente local.",
         "b": "Incorrecta. La base o estructura óptima puede cambiar; actividad no garantiza validez global de una pendiente local."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "concepto"
     },
     {
@@ -4359,7 +4359,7 @@
         "a": "Incorrecta. La fórmula combina costes básicos y la inversa; ni disponibilidades ni Bc dan en general los precios sombra.",
         "b": "Incorrecta. La fórmula combina costes básicos y la inversa; ni disponibilidades ni Bc dan en general los precios sombra."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "concepto"
     },
     {
@@ -4388,7 +4388,7 @@
         "a": "Incorrecta. La complementariedad impone yi·si = 0; una holgura positiva obliga a yi = 0.",
         "b": "Incorrecta. La complementariedad impone yi·si = 0; una holgura positiva obliga a yi = 0."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "concepto"
     },
     {
@@ -4417,7 +4417,7 @@
         "a": "Incorrecta. Complementariedad no permite invertir esa implicación; puede haber restricciones activas con multiplicador cero.",
         "b": "Incorrecta. Complementariedad no permite invertir esa implicación; puede haber restricciones activas con multiplicador cero."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "concepto"
     },
     {
@@ -4649,7 +4649,7 @@
         "a": "Incorrecta. La interpretación requiere significado económico y rango de validez; no es una fórmula global sin hipótesis.",
         "b": "Incorrecta. La interpretación requiere significado económico y rango de validez; no es una fórmula global sin hipótesis."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "concepto"
     },
     {
@@ -5258,7 +5258,7 @@
         "a": "Incorrecta. Pura impone integridad a todas las decisiones; no describe un modelo mixto.",
         "b": "Incorrecta. Pura impone integridad a todas las decisiones; no describe un modelo mixto."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5287,7 +5287,7 @@
         "a": "Incorrecta. El modelo mixto combina dominios; no es binario puro ni continuo puro.",
         "b": "Incorrecta. El modelo mixto combina dominios; no es binario puro ni continuo puro."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5316,7 +5316,7 @@
         "a": "Incorrecta. Una binaria solo tiene dos valores; el intervalo continuo y los enteros no negativos son conjuntos mayores.",
         "b": "Incorrecta. Una binaria solo tiene dos valores; el intervalo continuo y los enteros no negativos son conjuntos mayores."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5345,7 +5345,7 @@
         "a": "Incorrecta. La relajación amplía dominios; no borra el modelo ni redondea soluciones.",
         "b": "Incorrecta. La relajación amplía dominios; no borra el modelo ni redondea soluciones."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5374,7 +5374,7 @@
         "a": "Incorrecta. El conjunto relajado contiene al entero, por lo que su máximo no es menor.",
         "b": "Incorrecta. El conjunto relajado contiene al entero, por lo que su máximo no es menor."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5403,7 +5403,7 @@
         "a": "Incorrecta. Al ampliar el conjunto, el mínimo puede bajar; no tiene un valor fijo universal.",
         "b": "Incorrecta. Al ampliar el conjunto, el mínimo puede bajar; no tiene un valor fijo universal."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5432,7 +5432,7 @@
         "a": "Incorrecta. Su valor es alcanzable, pero otros candidatos podrían mejorarla.",
         "b": "Incorrecta. Su valor es alcanzable, pero otros candidatos podrían mejorarla."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5461,7 +5461,7 @@
         "a": "Incorrecta. Suelo y techo separan todos los valores enteros posibles y excluyen la fracción actual.",
         "b": "Incorrecta. Suelo y techo separan todos los valores enteros posibles y excluyen la fracción actual."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5490,7 +5490,7 @@
         "a": "Incorrecta. Las ramas mantienen el objetivo y las condiciones previas y añaden límites.",
         "b": "Incorrecta. Las ramas mantienen el objetivo y las condiciones previas y añaden límites."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5519,7 +5519,7 @@
         "a": "Incorrecta. Una cota que no mejora elimina la posibilidad de superar el mejor valor conocido; una fracción suele motivar ramificación.",
         "b": "Incorrecta. Una cota que no mejora elimina la posibilidad de superar el mejor valor conocido; una fracción suele motivar ramificación."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5548,7 +5548,7 @@
         "a": "Incorrecta. El nodo no contiene solución entera, pero otros nodos aún pueden contenerla.",
         "b": "Incorrecta. El nodo no contiene solución entera, pero otros nodos aún pueden contenerla."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5577,7 +5577,7 @@
         "a": "Incorrecta. El óptimo relajado entero es válido para el nodo y no hay fracción en la que ramificar.",
         "b": "Incorrecta. El óptimo relajado entero es válido para el nodo y no hay fracción en la que ramificar."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5606,7 +5606,7 @@
         "a": "Incorrecta. Profundidad es una estrategia de selección de nodos, no una modificación del modelo.",
         "b": "Incorrecta. Profundidad es una estrategia de selección de nodos, no una modificación del modelo."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -5635,7 +5635,7 @@
         "a": "Incorrecta. Hace falta cerrar o acotar los restantes nodos; ni profundidad ni binariedad bastan.",
         "b": "Incorrecta. Hace falta cerrar o acotar los restantes nodos; ni profundidad ni binariedad bastan."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "concepto"
     },
     {
@@ -6099,7 +6099,7 @@
         "a": "Incorrecta. Ni el mejor punto del nodo superaría 3; se poda sin empeorar el incumbente a 2.",
         "b": "Incorrecta. Ni el mejor punto del nodo superaría 3; se poda sin empeorar el incumbente a 2."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "calculo"
     },
     {
@@ -6331,7 +6331,7 @@
         "a": "Incorrecta. Δz = yi·Δbi = 4·6 = 24 €. Se multiplica el valor unitario por la variación, bajo la hipótesis del rango.",
         "b": "Incorrecta. Δz = yi·Δbi = 4·6 = 24 €. Se multiplica el valor unitario por la variación, bajo la hipótesis del rango."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "calculo"
     },
     {
@@ -6389,7 +6389,7 @@
         "a": "Incorrecta. Suelo=4, techo=5; excluir 5 perdería posibles soluciones enteras y mantener la fracción no ramifica correctamente.",
         "b": "Incorrecta. Suelo=4, techo=5; excluir 5 perdería posibles soluciones enteras y mantener la fracción no ramifica correctamente."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "calculo"
     },
     {
@@ -6911,7 +6911,7 @@
         "a": "Incorrecta. Complementariedad exige yi·8=0; como la holgura es positiva, yi=0. No se iguala el multiplicador a la holgura.",
         "b": "Incorrecta. Complementariedad exige yi·8=0; como la holgura es positiva, yi=0. No se iguala el multiplicador a la holgura."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "calculo"
     },
     {
@@ -6969,7 +6969,7 @@
         "a": "Incorrecta. El nodo no puede bajar de 9, que ya es peor que 8; se poda, sin sustituir una solución mejor ni descartar otros nodos.",
         "b": "Incorrecta. El nodo no puede bajar de 9, que ya es peor que 8; se poda, sin sustituir una solución mejor ni descartar otros nodos."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "calculo"
     },
     {
@@ -7259,7 +7259,7 @@
         "a": "Incorrecta. Ni el mejor punto del nodo superaría 7; se poda sin empeorar el incumbente a 6.",
         "b": "Incorrecta. Ni el mejor punto del nodo superaría 7; se poda sin empeorar el incumbente a 6."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "calculo"
     },
     {
@@ -7491,7 +7491,7 @@
         "a": "Incorrecta. Δz = yi·Δbi = 8·10 = 80 €. Se multiplica el valor unitario por la variación, bajo la hipótesis del rango.",
         "b": "Incorrecta. Δz = yi·Δbi = 8·10 = 80 €. Se multiplica el valor unitario por la variación, bajo la hipótesis del rango."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "calculo"
     },
     {
@@ -7549,7 +7549,7 @@
         "a": "Incorrecta. Suelo=8, techo=9; excluir 9 perdería posibles soluciones enteras y mantener la fracción no ramifica correctamente.",
         "b": "Incorrecta. Suelo=8, techo=9; excluir 9 perdería posibles soluciones enteras y mantener la fracción no ramifica correctamente."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "calculo"
     },
     {
@@ -8071,7 +8071,7 @@
         "a": "Incorrecta. Complementariedad exige yi·12=0; como la holgura es positiva, yi=0. No se iguala el multiplicador a la holgura.",
         "b": "Incorrecta. Complementariedad exige yi·12=0; como la holgura es positiva, yi=0. No se iguala el multiplicador a la holgura."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "calculo"
     },
     {
@@ -8129,7 +8129,7 @@
         "a": "Incorrecta. El nodo no puede bajar de 13, que ya es peor que 12; se poda, sin sustituir una solución mejor ni descartar otros nodos.",
         "b": "Incorrecta. El nodo no puede bajar de 13, que ya es peor que 12; se poda, sin sustituir una solución mejor ni descartar otros nodos."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "calculo"
     },
     {
@@ -8419,7 +8419,7 @@
         "a": "Incorrecta. Ni el mejor punto del nodo superaría 11; se poda sin empeorar el incumbente a 10.",
         "b": "Incorrecta. Ni el mejor punto del nodo superaría 11; se poda sin empeorar el incumbente a 10."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "calculo"
     },
     {
@@ -8651,7 +8651,7 @@
         "a": "Incorrecta. Δz = yi·Δbi = 12·14 = 168 €. Se multiplica el valor unitario por la variación, bajo la hipótesis del rango.",
         "b": "Incorrecta. Δz = yi·Δbi = 12·14 = 168 €. Se multiplica el valor unitario por la variación, bajo la hipótesis del rango."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "calculo"
     },
     {
@@ -8709,7 +8709,7 @@
         "a": "Incorrecta. Suelo=12, techo=13; excluir 13 perdería posibles soluciones enteras y mantener la fracción no ramifica correctamente.",
         "b": "Incorrecta. Suelo=12, techo=13; excluir 13 perdería posibles soluciones enteras y mantener la fracción no ramifica correctamente."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "calculo"
     },
     {
@@ -9231,7 +9231,7 @@
         "a": "Incorrecta. Complementariedad exige yi·16=0; como la holgura es positiva, yi=0. No se iguala el multiplicador a la holgura.",
         "b": "Incorrecta. Complementariedad exige yi·16=0; como la holgura es positiva, yi=0. No se iguala el multiplicador a la holgura."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "calculo"
     },
     {
@@ -9289,7 +9289,7 @@
         "a": "Incorrecta. El nodo no puede bajar de 17, que ya es peor que 16; se poda, sin sustituir una solución mejor ni descartar otros nodos.",
         "b": "Incorrecta. El nodo no puede bajar de 17, que ya es peor que 16; se poda, sin sustituir una solución mejor ni descartar otros nodos."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "calculo"
     },
     {
@@ -9579,7 +9579,7 @@
         "a": "Incorrecta. Ni el mejor punto del nodo superaría 15; se poda sin empeorar el incumbente a 14.",
         "b": "Incorrecta. Ni el mejor punto del nodo superaría 15; se poda sin empeorar el incumbente a 14."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "calculo"
     },
     {
@@ -9811,7 +9811,7 @@
         "a": "Incorrecta. Δz = yi·Δbi = 16·18 = 288 €. Se multiplica el valor unitario por la variación, bajo la hipótesis del rango.",
         "b": "Incorrecta. Δz = yi·Δbi = 16·18 = 288 €. Se multiplica el valor unitario por la variación, bajo la hipótesis del rango."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "calculo"
     },
     {
@@ -9869,7 +9869,7 @@
         "a": "Incorrecta. Suelo=16, techo=17; excluir 17 perdería posibles soluciones enteras y mantener la fracción no ramifica correctamente.",
         "b": "Incorrecta. Suelo=16, techo=17; excluir 17 perdería posibles soluciones enteras y mantener la fracción no ramifica correctamente."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "calculo"
     },
     {
@@ -10391,7 +10391,7 @@
         "a": "Incorrecta. Complementariedad exige yi·20=0; como la holgura es positiva, yi=0. No se iguala el multiplicador a la holgura.",
         "b": "Incorrecta. Complementariedad exige yi·20=0; como la holgura es positiva, yi=0. No se iguala el multiplicador a la holgura."
       },
-      "reference": "Guía, apartado 11",
+      "reference": "Guía, apartado 12",
       "kind": "calculo"
     },
     {
@@ -10449,7 +10449,7 @@
         "a": "Incorrecta. El nodo no puede bajar de 21, que ya es peor que 20; se poda, sin sustituir una solución mejor ni descartar otros nodos.",
         "b": "Incorrecta. El nodo no puede bajar de 21, que ya es peor que 20; se poda, sin sustituir una solución mejor ni descartar otros nodos."
       },
-      "reference": "Guía, apartado 14",
+      "reference": "Guía, apartado 15",
       "kind": "calculo"
     }
   ],

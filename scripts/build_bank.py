@@ -7,7 +7,7 @@ TOPICS={
 'formas':('Formas y transformaciones','05'), 'grafica':('Resolución gráfica','06'),
 'bases':('Bases y degeneración','07'), 'simplex':('Simplex','08'),
 'artificiales':('Artificiales y terminación','10'), 'dualidad':('Dualidad','11'),
-'redes':('Transporte, asignación y redes','13'), 'entera':('Entera y condiciones','14')}
+'redes':('Transporte, asignación y redes','13'), 'entera':('Entera y condiciones','15')}
 DATA={
 'fundamentos': '''
 ¿Qué debe ser lineal en un programa lineal?|La función objetivo y las expresiones de las restricciones|Solo la función objetivo|Solo las restricciones|La linealidad se exige tanto al objetivo como a las restricciones; imponerla solo a una parte no basta.
@@ -235,17 +235,23 @@ for topic,block in DATA.items():
  rows=[l.split('|') for l in block.strip().splitlines()]
  assert len(rows)==20,(topic,len(rows))
  for i,(prompt,correct,w1,w2,explanation) in enumerate(rows,1):
+  ref=TOPICS[topic][1]
+  if topic=='dualidad' and i in [8,9,10,11,12,20]:ref='12'
+  if topic=='entera' and i>=15:ref='14'
   questions.append({'id':f'{topic}-{i:03}','topic':topic,'difficulty':1 if i<=10 else 2,'prompt':prompt,
   'options':[{'id':'c','text':correct},{'id':'a','text':w1},{'id':'b','text':w2}], 'correctId':'c',
   'explanation':explanation,'rationales':{'c':'Correcta. '+explanation,'a':'Incorrecta. '+explanation,'b':'Incorrecta. '+explanation},
-  'reference':f'Guía, apartado {TOPICS[topic][1]}','kind':'concepto'})
+  'reference':f'Guía, apartado {ref}','kind':'concepto'})
 
 def add(topic,i,prompt,answer,w1,w2,explanation):
  assert len({str(answer),str(w1),str(w2)})==3,(prompt,answer,w1,w2)
+ ref=TOPICS[topic][1]
+ if topic=='dualidad' and (i-1)%4 in [1,3]:ref='12'
+ if topic=='entera' and (i-1)%4==2:ref='14'
  questions.append({'id':f'calculo-{topic}-{i:03}','topic':topic,'difficulty':2 if i%4 else 3,'prompt':prompt,
  'options':[{'id':'c','text':str(answer)},{'id':'a','text':str(w1)},{'id':'b','text':str(w2)}], 'correctId':'c',
  'explanation':explanation,'rationales':{k:('Correcta. ' if k=='c' else 'Incorrecta. ')+explanation for k in ['c','a','b']},
- 'reference':f'Guía, apartado {TOPICS[topic][1]}','kind':'calculo'})
+ 'reference':f'Guía, apartado {ref}','kind':'calculo'})
 # Diez familias, cuatro tareas diferentes por familia, cuatro instancias por tarea.
 for k in range(1,17):
  mode=(k-1)%4; a=k+2; b=k+4

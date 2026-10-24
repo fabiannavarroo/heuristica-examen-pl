@@ -70,7 +70,7 @@ def chart(kind):
 bank=json.loads((ROOT/'study/questions.json').read_text()); byid={q['id']:q for q in bank['questions']}
 exam_pages=[];exams_meta=[]
 for e,ids in enumerate(bank['pdfExams']):
- rng=random.Random(841+e);slots=[0]*7+[1]*7+[2]*6;rng.shuffle(slots);items=[]
+ rng=random.Random(841+e);slots=[i for i in range(3) for _ in range(6+int(i!=e))];rng.shuffle(slots);items=[]
  for qid,slot in zip(ids,slots):
   q=byid[qid];wrong=[o for o in q['options'] if o['id']!=q['correctId']];rng.shuffle(wrong)
   opts=wrong[:];opts.insert(slot,next(o for o in q['options'] if o['id']==q['correctId']))
