@@ -3,7 +3,7 @@ import json,itertools,math
 import numpy as np
 ROOT=Path(__file__).resolve().parents[1]
 bank=json.loads((ROOT/'study/questions.json').read_text());qs=bank['questions']
-assert len(qs)==len({q['id'] for q in qs})==len({q['prompt'] for q in qs})==360
+assert len(qs)==len({q['id'] for q in qs})==len({q['prompt'] for q in qs})==372
 for q in qs:
  assert len(q['options'])==3
  assert len({o['id'] for o in q['options']})==len({o['text'] for o in q['options']})==3,q['id']
@@ -65,7 +65,7 @@ for q in qs:
   U=a+b;K=a
   for x in range(U+1):
    assert [y for y in [0,1] if x>=K*y and x<=K-1+(U-K+1)*y]==[int(x>=K)]
-print('360 preguntas: estructura y unicidad; 60 preguntas PDF; 2 enteros, asignación y umbrales verificados')
+print('372 preguntas: estructura y unicidad; 60 preguntas PDF; 2 enteros, asignación y umbrales verificados')
 print('Las familias numéricas se revisan con sus fórmulas; los conceptos requieren además revisión editorial.')
 verified=0
 for q in qs:

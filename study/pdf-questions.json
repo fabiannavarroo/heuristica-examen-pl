@@ -1,0 +1,1742 @@
+[
+  {
+    "id": "fundamentos-001",
+    "topic": "fundamentos",
+    "difficulty": 1,
+    "prompt": "¿Qué debe ser lineal en un programa lineal?",
+    "options": [
+      {
+        "id": "c",
+        "text": "La función objetivo y las expresiones de las restricciones"
+      },
+      {
+        "id": "a",
+        "text": "Solo la función objetivo"
+      },
+      {
+        "id": "b",
+        "text": "Solo las restricciones"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "La linealidad se exige tanto al objetivo como a las restricciones; imponerla solo a una parte no basta.",
+    "rationales": {
+      "c": "Correcta. La linealidad se exige tanto al objetivo como a las restricciones; imponerla solo a una parte no basta.",
+      "a": "Incorrecta. La linealidad se exige tanto al objetivo como a las restricciones; imponerla solo a una parte no basta.",
+      "b": "Incorrecta. La linealidad se exige tanto al objetivo como a las restricciones; imponerla solo a una parte no basta."
+    },
+    "reference": "Guía, apartado 03",
+    "kind": "concepto"
+  },
+  {
+    "id": "fundamentos-003",
+    "topic": "fundamentos",
+    "difficulty": 1,
+    "prompt": "¿Qué representa una variable de decisión?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Una cantidad que debe determinar el modelo"
+      },
+      {
+        "id": "a",
+        "text": "Siempre una disponibilidad fija"
+      },
+      {
+        "id": "b",
+        "text": "Siempre el beneficio unitario"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Las decisiones son incógnitas; disponibilidades y beneficios unitarios suelen ser datos del problema.",
+    "rationales": {
+      "c": "Correcta. Las decisiones son incógnitas; disponibilidades y beneficios unitarios suelen ser datos del problema.",
+      "a": "Incorrecta. Las decisiones son incógnitas; disponibilidades y beneficios unitarios suelen ser datos del problema.",
+      "b": "Incorrecta. Las decisiones son incógnitas; disponibilidades y beneficios unitarios suelen ser datos del problema."
+    },
+    "reference": "Guía, apartado 03",
+    "kind": "concepto"
+  },
+  {
+    "id": "fundamentos-005",
+    "topic": "fundamentos",
+    "difficulty": 1,
+    "prompt": "¿Qué representa b en Ax ≤ b?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Los términos independientes de las restricciones"
+      },
+      {
+        "id": "a",
+        "text": "El vector de costes reducidos"
+      },
+      {
+        "id": "b",
+        "text": "La matriz de restricciones"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "b contiene límites o recursos; los costes reducidos se calculan con la base y A es la matriz de coeficientes.",
+    "rationales": {
+      "c": "Correcta. b contiene límites o recursos; los costes reducidos se calculan con la base y A es la matriz de coeficientes.",
+      "a": "Incorrecta. b contiene límites o recursos; los costes reducidos se calculan con la base y A es la matriz de coeficientes.",
+      "b": "Incorrecta. b contiene límites o recursos; los costes reducidos se calculan con la base y A es la matriz de coeficientes."
+    },
+    "reference": "Guía, apartado 03",
+    "kind": "concepto"
+  },
+  {
+    "id": "modelos-001",
+    "topic": "modelos",
+    "difficulty": 1,
+    "prompt": "¿Cómo se calcula el beneficio unitario si se conocen venta y coste unitarios?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Venta menos coste"
+      },
+      {
+        "id": "a",
+        "text": "Venta más coste"
+      },
+      {
+        "id": "b",
+        "text": "Solo el precio de venta"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "El beneficio descuenta el coste; sumar ambos o ignorar el coste no calcula el margen.",
+    "rationales": {
+      "c": "Correcta. El beneficio descuenta el coste; sumar ambos o ignorar el coste no calcula el margen.",
+      "a": "Incorrecta. El beneficio descuenta el coste; sumar ambos o ignorar el coste no calcula el margen.",
+      "b": "Incorrecta. El beneficio descuenta el coste; sumar ambos o ignorar el coste no calcula el margen."
+    },
+    "reference": "Guía, apartado 04",
+    "kind": "concepto"
+  },
+  {
+    "id": "modelos-003",
+    "topic": "modelos",
+    "difficulty": 1,
+    "prompt": "¿Qué desigualdad representa como máximo U unidades de x?",
+    "options": [
+      {
+        "id": "c",
+        "text": "x ≤ U"
+      },
+      {
+        "id": "a",
+        "text": "x ≥ U"
+      },
+      {
+        "id": "b",
+        "text": "x > U"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Como máximo impone una cota superior inclusiva; no exige superar U.",
+    "rationales": {
+      "c": "Correcta. Como máximo impone una cota superior inclusiva; no exige superar U.",
+      "a": "Incorrecta. Como máximo impone una cota superior inclusiva; no exige superar U.",
+      "b": "Incorrecta. Como máximo impone una cota superior inclusiva; no exige superar U."
+    },
+    "reference": "Guía, apartado 04",
+    "kind": "concepto"
+  },
+  {
+    "id": "modelos-005",
+    "topic": "modelos",
+    "difficulty": 1,
+    "prompt": "¿Cómo modelar al menos dos unidades de y por cada unidad de x?",
+    "options": [
+      {
+        "id": "c",
+        "text": "y ≥ 2x"
+      },
+      {
+        "id": "a",
+        "text": "x ≥ 2y"
+      },
+      {
+        "id": "b",
+        "text": "y ≥ x + 2"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "La proporción multiplica a x; invertirla o añadir una constante cambia el requisito.",
+    "rationales": {
+      "c": "Correcta. La proporción multiplica a x; invertirla o añadir una constante cambia el requisito.",
+      "a": "Incorrecta. La proporción multiplica a x; invertirla o añadir una constante cambia el requisito.",
+      "b": "Incorrecta. La proporción multiplica a x; invertirla o añadir una constante cambia el requisito."
+    },
+    "reference": "Guía, apartado 04",
+    "kind": "concepto"
+  },
+  {
+    "id": "modelos-006",
+    "topic": "modelos",
+    "difficulty": 1,
+    "prompt": "¿Cómo modelar que no se produzca más de B que de A?",
+    "options": [
+      {
+        "id": "c",
+        "text": "xB ≤ xA"
+      },
+      {
+        "id": "a",
+        "text": "xB ≥ xA"
+      },
+      {
+        "id": "b",
+        "text": "xB ≤ 1"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Comparar producciones exige xB ≤ xA; no es una cuota fija de una unidad.",
+    "rationales": {
+      "c": "Correcta. Comparar producciones exige xB ≤ xA; no es una cuota fija de una unidad.",
+      "a": "Incorrecta. Comparar producciones exige xB ≤ xA; no es una cuota fija de una unidad.",
+      "b": "Incorrecta. Comparar producciones exige xB ≤ xA; no es una cuota fija de una unidad."
+    },
+    "reference": "Guía, apartado 04",
+    "kind": "concepto"
+  },
+  {
+    "id": "formas-001",
+    "topic": "formas",
+    "difficulty": 1,
+    "prompt": "Según los apuntes, ¿qué caracteriza la forma canónica de maximización?",
+    "options": [
+      {
+        "id": "c",
+        "text": "max, restricciones ≤ y variables no negativas"
+      },
+      {
+        "id": "a",
+        "text": "min, restricciones = y variables libres"
+      },
+      {
+        "id": "b",
+        "text": "max, restricciones estrictas <"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "La convención docente usa max, ≤ y no negatividad; ni igualdades con libres ni desigualdades estrictas la describen.",
+    "rationales": {
+      "c": "Correcta. La convención docente usa max, ≤ y no negatividad; ni igualdades con libres ni desigualdades estrictas la describen.",
+      "a": "Incorrecta. La convención docente usa max, ≤ y no negatividad; ni igualdades con libres ni desigualdades estrictas la describen.",
+      "b": "Incorrecta. La convención docente usa max, ≤ y no negatividad; ni igualdades con libres ni desigualdades estrictas la describen."
+    },
+    "reference": "Guía, apartado 05",
+    "kind": "concepto"
+  },
+  {
+    "id": "formas-003",
+    "topic": "formas",
+    "difficulty": 1,
+    "prompt": "¿Qué dominio tienen las variables de la forma estándar utilizada en clase?",
+    "options": [
+      {
+        "id": "c",
+        "text": "No negativas"
+      },
+      {
+        "id": "a",
+        "text": "Todas estrictamente positivas"
+      },
+      {
+        "id": "b",
+        "text": "Todas libres"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Se admite cero; la no negatividad no equivale a positividad estricta ni a libertad de signo.",
+    "rationales": {
+      "c": "Correcta. Se admite cero; la no negatividad no equivale a positividad estricta ni a libertad de signo.",
+      "a": "Incorrecta. Se admite cero; la no negatividad no equivale a positividad estricta ni a libertad de signo.",
+      "b": "Incorrecta. Se admite cero; la no negatividad no equivale a positividad estricta ni a libertad de signo."
+    },
+    "reference": "Guía, apartado 05",
+    "kind": "concepto"
+  },
+  {
+    "id": "formas-004",
+    "topic": "formas",
+    "difficulty": 1,
+    "prompt": "¿Qué condición se exige a b en la forma estándar de los apuntes?",
+    "options": [
+      {
+        "id": "c",
+        "text": "b ≥ 0 componente a componente"
+      },
+      {
+        "id": "a",
+        "text": "b < 0 componente a componente"
+      },
+      {
+        "id": "b",
+        "text": "b = c necesariamente"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Los términos independientes se normalizan no negativos; no tienen que coincidir con el vector del objetivo.",
+    "rationales": {
+      "c": "Correcta. Los términos independientes se normalizan no negativos; no tienen que coincidir con el vector del objetivo.",
+      "a": "Incorrecta. Los términos independientes se normalizan no negativos; no tienen que coincidir con el vector del objetivo.",
+      "b": "Incorrecta. Los términos independientes se normalizan no negativos; no tienen que coincidir con el vector del objetivo."
+    },
+    "reference": "Guía, apartado 05",
+    "kind": "concepto"
+  },
+  {
+    "id": "formas-005",
+    "topic": "formas",
+    "difficulty": 1,
+    "prompt": "¿Cómo convertir min cᵀx en maximización equivalente?",
+    "options": [
+      {
+        "id": "c",
+        "text": "max −cᵀx, recuperando después el signo del valor"
+      },
+      {
+        "id": "a",
+        "text": "max cᵀx sin cambiar nada más"
+      },
+      {
+        "id": "b",
+        "text": "max cᵀx multiplicando solo b por −1"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Se niega el objetivo; conservarlo o alterar únicamente recursos no representa la misma optimización.",
+    "rationales": {
+      "c": "Correcta. Se niega el objetivo; conservarlo o alterar únicamente recursos no representa la misma optimización.",
+      "a": "Incorrecta. Se niega el objetivo; conservarlo o alterar únicamente recursos no representa la misma optimización.",
+      "b": "Incorrecta. Se niega el objetivo; conservarlo o alterar únicamente recursos no representa la misma optimización."
+    },
+    "reference": "Guía, apartado 05",
+    "kind": "concepto"
+  },
+  {
+    "id": "formas-006",
+    "topic": "formas",
+    "difficulty": 1,
+    "prompt": "¿Qué ocurre al multiplicar una desigualdad por −1?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Se invierte el sentido"
+      },
+      {
+        "id": "a",
+        "text": "Se conserva el sentido"
+      },
+      {
+        "id": "b",
+        "text": "Se convierte automáticamente en igualdad"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "El orden se invierte al multiplicar por un número negativo; no aparece una igualdad.",
+    "rationales": {
+      "c": "Correcta. El orden se invierte al multiplicar por un número negativo; no aparece una igualdad.",
+      "a": "Incorrecta. El orden se invierte al multiplicar por un número negativo; no aparece una igualdad.",
+      "b": "Incorrecta. El orden se invierte al multiplicar por un número negativo; no aparece una igualdad."
+    },
+    "reference": "Guía, apartado 05",
+    "kind": "concepto"
+  },
+  {
+    "id": "grafica-001",
+    "topic": "grafica",
+    "difficulty": 1,
+    "prompt": "¿Cuál es el primer paso geométrico para resolver una PL con dos variables?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Representar las fronteras y los semiplanos de las restricciones"
+      },
+      {
+        "id": "a",
+        "text": "Evaluar todos los puntos del plano"
+      },
+      {
+        "id": "b",
+        "text": "Invertir siempre una matriz de todas las restricciones"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Se dibujan rectas y lados admisibles; no se enumeran infinitos puntos ni se requiere una matriz cuadrada global.",
+    "rationales": {
+      "c": "Correcta. Se dibujan rectas y lados admisibles; no se enumeran infinitos puntos ni se requiere una matriz cuadrada global.",
+      "a": "Incorrecta. Se dibujan rectas y lados admisibles; no se enumeran infinitos puntos ni se requiere una matriz cuadrada global.",
+      "b": "Incorrecta. Se dibujan rectas y lados admisibles; no se enumeran infinitos puntos ni se requiere una matriz cuadrada global."
+    },
+    "reference": "Guía, apartado 06",
+    "kind": "concepto"
+  },
+  {
+    "id": "grafica-002",
+    "topic": "grafica",
+    "difficulty": 1,
+    "prompt": "¿Cómo elegir el semiplano de ax + by ≤ d?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Comprobar un punto de prueba que no esté en la recta"
+      },
+      {
+        "id": "a",
+        "text": "Elegir siempre el lado superior"
+      },
+      {
+        "id": "b",
+        "text": "Elegir siempre el lado que excluye el origen"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "El sentido depende de coeficientes y término independiente; un punto de prueba evita reglas visuales falsas.",
+    "rationales": {
+      "c": "Correcta. El sentido depende de coeficientes y término independiente; un punto de prueba evita reglas visuales falsas.",
+      "a": "Incorrecta. El sentido depende de coeficientes y término independiente; un punto de prueba evita reglas visuales falsas.",
+      "b": "Incorrecta. El sentido depende de coeficientes y término independiente; un punto de prueba evita reglas visuales falsas."
+    },
+    "reference": "Guía, apartado 06",
+    "kind": "concepto"
+  },
+  {
+    "id": "grafica-003",
+    "topic": "grafica",
+    "difficulty": 1,
+    "prompt": "¿Qué es la región factible geométricamente?",
+    "options": [
+      {
+        "id": "c",
+        "text": "La intersección de todos los conjuntos admisibles"
+      },
+      {
+        "id": "a",
+        "text": "La unión de todos los semiplanos"
+      },
+      {
+        "id": "b",
+        "text": "Solo la recta del objetivo"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Un punto debe cumplir simultáneamente todas las restricciones; la unión exige solo alguna.",
+    "rationales": {
+      "c": "Correcta. Un punto debe cumplir simultáneamente todas las restricciones; la unión exige solo alguna.",
+      "a": "Incorrecta. Un punto debe cumplir simultáneamente todas las restricciones; la unión exige solo alguna.",
+      "b": "Incorrecta. Un punto debe cumplir simultáneamente todas las restricciones; la unión exige solo alguna."
+    },
+    "reference": "Guía, apartado 06",
+    "kind": "concepto"
+  },
+  {
+    "id": "grafica-004",
+    "topic": "grafica",
+    "difficulty": 1,
+    "prompt": "¿Qué representa una recta de isobeneficio?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Puntos con el mismo valor del objetivo"
+      },
+      {
+        "id": "a",
+        "text": "Puntos con el mismo consumo de todos los recursos"
+      },
+      {
+        "id": "b",
+        "text": "Puntos necesariamente óptimos"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "La igualdad cᵀx = k fija el objetivo; no garantiza igual consumo ni optimalidad.",
+    "rationales": {
+      "c": "Correcta. La igualdad cᵀx = k fija el objetivo; no garantiza igual consumo ni optimalidad.",
+      "a": "Incorrecta. La igualdad cᵀx = k fija el objetivo; no garantiza igual consumo ni optimalidad.",
+      "b": "Incorrecta. La igualdad cᵀx = k fija el objetivo; no garantiza igual consumo ni optimalidad."
+    },
+    "reference": "Guía, apartado 06",
+    "kind": "concepto"
+  },
+  {
+    "id": "grafica-005",
+    "topic": "grafica",
+    "difficulty": 1,
+    "prompt": "¿Puede un punto de intersección de dos rectas ser infactible?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Sí, si incumple otra restricción"
+      },
+      {
+        "id": "a",
+        "text": "No, toda intersección es factible"
+      },
+      {
+        "id": "b",
+        "text": "Solo si su objetivo es negativo"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Ser intersección no verifica las demás restricciones y el signo del objetivo no determina factibilidad.",
+    "rationales": {
+      "c": "Correcta. Ser intersección no verifica las demás restricciones y el signo del objetivo no determina factibilidad.",
+      "a": "Incorrecta. Ser intersección no verifica las demás restricciones y el signo del objetivo no determina factibilidad.",
+      "b": "Incorrecta. Ser intersección no verifica las demás restricciones y el signo del objetivo no determina factibilidad."
+    },
+    "reference": "Guía, apartado 06",
+    "kind": "concepto"
+  },
+  {
+    "id": "bases-001",
+    "topic": "bases",
+    "difficulty": 1,
+    "prompt": "Si A tiene m filas independientes, ¿cuál es el tamaño de una base B?",
+    "options": [
+      {
+        "id": "c",
+        "text": "m × m"
+      },
+      {
+        "id": "a",
+        "text": "n × n siempre"
+      },
+      {
+        "id": "b",
+        "text": "m × n siempre"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Se eligen m columnas independientes para formar una matriz cuadrada; A completa no es necesariamente una base.",
+    "rationales": {
+      "c": "Correcta. Se eligen m columnas independientes para formar una matriz cuadrada; A completa no es necesariamente una base.",
+      "a": "Incorrecta. Se eligen m columnas independientes para formar una matriz cuadrada; A completa no es necesariamente una base.",
+      "b": "Incorrecta. Se eligen m columnas independientes para formar una matriz cuadrada; A completa no es necesariamente una base."
+    },
+    "reference": "Guía, apartado 07",
+    "kind": "concepto"
+  },
+  {
+    "id": "bases-002",
+    "topic": "bases",
+    "difficulty": 1,
+    "prompt": "¿Qué propiedad debe tener B para calcular B⁻¹?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Ser no singular"
+      },
+      {
+        "id": "a",
+        "text": "Tener todas sus entradas positivas"
+      },
+      {
+        "id": "b",
+        "text": "Ser siempre la identidad"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "La independencia de columnas garantiza inversa; ni positividad de entradas ni identidad son requisitos generales.",
+    "rationales": {
+      "c": "Correcta. La independencia de columnas garantiza inversa; ni positividad de entradas ni identidad son requisitos generales.",
+      "a": "Incorrecta. La independencia de columnas garantiza inversa; ni positividad de entradas ni identidad son requisitos generales.",
+      "b": "Incorrecta. La independencia de columnas garantiza inversa; ni positividad de entradas ni identidad son requisitos generales."
+    },
+    "reference": "Guía, apartado 07",
+    "kind": "concepto"
+  },
+  {
+    "id": "bases-003",
+    "topic": "bases",
+    "difficulty": 1,
+    "prompt": "¿Cómo se obtiene una solución básica asociada a B?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Fijando no básicas a cero y resolviendo BxB = b"
+      },
+      {
+        "id": "a",
+        "text": "Fijando básicas a cero y eligiendo libres las demás"
+      },
+      {
+        "id": "b",
+        "text": "Maximizando cada variable por separado"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "La definición fija n − m no básicas a cero y determina las m básicas por el sistema.",
+    "rationales": {
+      "c": "Correcta. La definición fija n − m no básicas a cero y determina las m básicas por el sistema.",
+      "a": "Incorrecta. La definición fija n − m no básicas a cero y determina las m básicas por el sistema.",
+      "b": "Incorrecta. La definición fija n − m no básicas a cero y determina las m básicas por el sistema."
+    },
+    "reference": "Guía, apartado 07",
+    "kind": "concepto"
+  },
+  {
+    "id": "bases-005",
+    "topic": "bases",
+    "difficulty": 1,
+    "prompt": "¿Cuándo una solución básica es factible en forma estándar?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Cuando xB ≥ 0"
+      },
+      {
+        "id": "a",
+        "text": "Cuando xB tiene algún componente negativo"
+      },
+      {
+        "id": "b",
+        "text": "Cuando z es positivo"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Las igualdades ya se satisfacen; falta verificar no negatividad, no el signo del objetivo.",
+    "rationales": {
+      "c": "Correcta. Las igualdades ya se satisfacen; falta verificar no negatividad, no el signo del objetivo.",
+      "a": "Incorrecta. Las igualdades ya se satisfacen; falta verificar no negatividad, no el signo del objetivo.",
+      "b": "Incorrecta. Las igualdades ya se satisfacen; falta verificar no negatividad, no el signo del objetivo."
+    },
+    "reference": "Guía, apartado 07",
+    "kind": "concepto"
+  },
+  {
+    "id": "simplex-001",
+    "topic": "simplex",
+    "difficulty": 1,
+    "prompt": "En maximización con rj = zj − cj, ¿qué variable elige la regla de entrada de clase?",
+    "options": [
+      {
+        "id": "c",
+        "text": "La no básica con rj más negativo"
+      },
+      {
+        "id": "a",
+        "text": "La básica con rj más positivo"
+      },
+      {
+        "id": "b",
+        "text": "La no básica con rj más próximo a cero sin importar el signo"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "La regla busca la mayor mejora marginal, equivalente al coste reducido más negativo entre no básicas.",
+    "rationales": {
+      "c": "Correcta. La regla busca la mayor mejora marginal, equivalente al coste reducido más negativo entre no básicas.",
+      "a": "Incorrecta. La regla busca la mayor mejora marginal, equivalente al coste reducido más negativo entre no básicas.",
+      "b": "Incorrecta. La regla busca la mayor mejora marginal, equivalente al coste reducido más negativo entre no básicas."
+    },
+    "reference": "Guía, apartado 08",
+    "kind": "concepto"
+  },
+  {
+    "id": "simplex-003",
+    "topic": "simplex",
+    "difficulty": 1,
+    "prompt": "¿Qué es zj en la convención docente?",
+    "options": [
+      {
+        "id": "c",
+        "text": "cBᵀyj"
+      },
+      {
+        "id": "a",
+        "text": "cj − cBᵀyj"
+      },
+      {
+        "id": "b",
+        "text": "La suma de los recursos"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "zj mide el efecto sobre contribuciones básicas; el coste reducido es zj − cj, no zj solo.",
+    "rationales": {
+      "c": "Correcta. zj mide el efecto sobre contribuciones básicas; el coste reducido es zj − cj, no zj solo.",
+      "a": "Incorrecta. zj mide el efecto sobre contribuciones básicas; el coste reducido es zj − cj, no zj solo.",
+      "b": "Incorrecta. zj mide el efecto sobre contribuciones básicas; el coste reducido es zj − cj, no zj solo."
+    },
+    "reference": "Guía, apartado 08",
+    "kind": "concepto"
+  },
+  {
+    "id": "simplex-005",
+    "topic": "simplex",
+    "difficulty": 1,
+    "prompt": "¿Qué cocientes se consideran en la regla de salida?",
+    "options": [
+      {
+        "id": "c",
+        "text": "xBi / yij solo cuando yij > 0"
+      },
+      {
+        "id": "a",
+        "text": "Todos, incluidos denominadores negativos"
+      },
+      {
+        "id": "b",
+        "text": "Solo los de denominador cero"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Solo las componentes positivas de yj hacen disminuir básicas y limitan el paso.",
+    "rationales": {
+      "c": "Correcta. Solo las componentes positivas de yj hacen disminuir básicas y limitan el paso.",
+      "a": "Incorrecta. Solo las componentes positivas de yj hacen disminuir básicas y limitan el paso.",
+      "b": "Incorrecta. Solo las componentes positivas de yj hacen disminuir básicas y limitan el paso."
+    },
+    "reference": "Guía, apartado 08",
+    "kind": "concepto"
+  },
+  {
+    "id": "artificiales-001",
+    "topic": "artificiales",
+    "difficulty": 1,
+    "prompt": "¿Cuál es el propósito de una variable artificial?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Construir una base inicial adecuada para el problema auxiliar"
+      },
+      {
+        "id": "a",
+        "text": "Medir un recurso sobrante real"
+      },
+      {
+        "id": "b",
+        "text": "Imponer integridad a una decisión"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "La artificial es una herramienta algorítmica; no es recurso físico ni restricción de dominio entero.",
+    "rationales": {
+      "c": "Correcta. La artificial es una herramienta algorítmica; no es recurso físico ni restricción de dominio entero.",
+      "a": "Incorrecta. La artificial es una herramienta algorítmica; no es recurso físico ni restricción de dominio entero.",
+      "b": "Incorrecta. La artificial es una herramienta algorítmica; no es recurso físico ni restricción de dominio entero."
+    },
+    "reference": "Guía, apartado 10",
+    "kind": "concepto"
+  },
+  {
+    "id": "artificiales-003",
+    "topic": "artificiales",
+    "difficulty": 1,
+    "prompt": "¿Qué coeficiente se asigna a una artificial en maximización con gran M?",
+    "options": [
+      {
+        "id": "c",
+        "text": "−M, con M positivo suficientemente grande"
+      },
+      {
+        "id": "a",
+        "text": "+M"
+      },
+      {
+        "id": "b",
+        "text": "Cero necesariamente"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Se penaliza aumentar artificiales en un máximo; +M las premiaría y cero no las penaliza.",
+    "rationales": {
+      "c": "Correcta. Se penaliza aumentar artificiales en un máximo; +M las premiaría y cero no las penaliza.",
+      "a": "Incorrecta. Se penaliza aumentar artificiales en un máximo; +M las premiaría y cero no las penaliza.",
+      "b": "Incorrecta. Se penaliza aumentar artificiales en un máximo; +M las premiaría y cero no las penaliza."
+    },
+    "reference": "Guía, apartado 10",
+    "kind": "concepto"
+  },
+  {
+    "id": "artificiales-005",
+    "topic": "artificiales",
+    "difficulty": 1,
+    "prompt": "¿Tener una artificial positiva en una solución intermedia demuestra infactibilidad original?",
+    "options": [
+      {
+        "id": "c",
+        "text": "No"
+      },
+      {
+        "id": "a",
+        "text": "Sí, inmediatamente"
+      },
+      {
+        "id": "b",
+        "text": "Solo si es la primera iteración"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Durante la búsqueda pueden quedar artificiales positivas; el diagnóstico requiere terminar correctamente la fase auxiliar.",
+    "rationales": {
+      "c": "Correcta. Durante la búsqueda pueden quedar artificiales positivas; el diagnóstico requiere terminar correctamente la fase auxiliar.",
+      "a": "Incorrecta. Durante la búsqueda pueden quedar artificiales positivas; el diagnóstico requiere terminar correctamente la fase auxiliar.",
+      "b": "Incorrecta. Durante la búsqueda pueden quedar artificiales positivas; el diagnóstico requiere terminar correctamente la fase auxiliar."
+    },
+    "reference": "Guía, apartado 10",
+    "kind": "concepto"
+  },
+  {
+    "id": "artificiales-006",
+    "topic": "artificiales",
+    "difficulty": 1,
+    "prompt": "¿Qué indica un óptimo auxiliar con suma de artificiales estrictamente positiva?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Que el modelo original es infactible"
+      },
+      {
+        "id": "a",
+        "text": "Que el modelo original tiene óptimos alternativos"
+      },
+      {
+        "id": "b",
+        "text": "Que basta redondear las artificiales a cero"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "No se puede satisfacer el original sin ayuda artificial; redondear no conserva igualdades.",
+    "rationales": {
+      "c": "Correcta. No se puede satisfacer el original sin ayuda artificial; redondear no conserva igualdades.",
+      "a": "Incorrecta. No se puede satisfacer el original sin ayuda artificial; redondear no conserva igualdades.",
+      "b": "Incorrecta. No se puede satisfacer el original sin ayuda artificial; redondear no conserva igualdades."
+    },
+    "reference": "Guía, apartado 10",
+    "kind": "concepto"
+  },
+  {
+    "id": "dualidad-001",
+    "topic": "dualidad",
+    "difficulty": 1,
+    "prompt": "¿Cuál es el dual de max cᵀx sujeto a Ax ≤ b, x ≥ 0?",
+    "options": [
+      {
+        "id": "c",
+        "text": "min bᵀy sujeto a Aᵀy ≥ c, y ≥ 0"
+      },
+      {
+        "id": "a",
+        "text": "min cᵀy sujeto a Ay ≤ b, y ≥ 0"
+      },
+      {
+        "id": "b",
+        "text": "max bᵀy sujeto a Aᵀy ≤ c, y ≥ 0"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Se intercambian b y c, se transpone A y se pasa a minimización con desigualdades ≥.",
+    "rationales": {
+      "c": "Correcta. Se intercambian b y c, se transpone A y se pasa a minimización con desigualdades ≥.",
+      "a": "Incorrecta. Se intercambian b y c, se transpone A y se pasa a minimización con desigualdades ≥.",
+      "b": "Incorrecta. Se intercambian b y c, se transpone A y se pasa a minimización con desigualdades ≥."
+    },
+    "reference": "Guía, apartado 11",
+    "kind": "concepto"
+  },
+  {
+    "id": "dualidad-003",
+    "topic": "dualidad",
+    "difficulty": 1,
+    "prompt": "¿Qué matriz aparece en las restricciones duales de la pareja simétrica?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Aᵀ"
+      },
+      {
+        "id": "a",
+        "text": "A⁻¹ siempre"
+      },
+      {
+        "id": "b",
+        "text": "La identidad siempre"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "La correspondencia entre filas y columnas produce la transpuesta; A puede no ser cuadrada ni invertible.",
+    "rationales": {
+      "c": "Correcta. La correspondencia entre filas y columnas produce la transpuesta; A puede no ser cuadrada ni invertible.",
+      "a": "Incorrecta. La correspondencia entre filas y columnas produce la transpuesta; A puede no ser cuadrada ni invertible.",
+      "b": "Incorrecta. La correspondencia entre filas y columnas produce la transpuesta; A puede no ser cuadrada ni invertible."
+    },
+    "reference": "Guía, apartado 11",
+    "kind": "concepto"
+  },
+  {
+    "id": "dualidad-004",
+    "topic": "dualidad",
+    "difficulty": 1,
+    "prompt": "¿Qué ocurre al dualizar dos veces bajo las convenciones correspondientes?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Se recupera el primal"
+      },
+      {
+        "id": "a",
+        "text": "Se obtiene siempre el opuesto del objetivo primal"
+      },
+      {
+        "id": "b",
+        "text": "Se obtiene un problema sin restricciones"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "La construcción dual es involutiva; no elimina restricciones ni niega permanentemente el problema.",
+    "rationales": {
+      "c": "Correcta. La construcción dual es involutiva; no elimina restricciones ni niega permanentemente el problema.",
+      "a": "Incorrecta. La construcción dual es involutiva; no elimina restricciones ni niega permanentemente el problema.",
+      "b": "Incorrecta. La construcción dual es involutiva; no elimina restricciones ni niega permanentemente el problema."
+    },
+    "reference": "Guía, apartado 11",
+    "kind": "concepto"
+  },
+  {
+    "id": "dualidad-005",
+    "topic": "dualidad",
+    "difficulty": 1,
+    "prompt": "¿Qué afirma la dualidad débil para primal máximo y dual mínimo factibles?",
+    "options": [
+      {
+        "id": "c",
+        "text": "cᵀx ≤ bᵀy"
+      },
+      {
+        "id": "a",
+        "text": "cᵀx > bᵀy siempre"
+      },
+      {
+        "id": "b",
+        "text": "cᵀx = bᵀy para cualquier par factible"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Un dual factible da cota superior al máximo primal; la igualdad no se da en cualquier par.",
+    "rationales": {
+      "c": "Correcta. Un dual factible da cota superior al máximo primal; la igualdad no se da en cualquier par.",
+      "a": "Incorrecta. Un dual factible da cota superior al máximo primal; la igualdad no se da en cualquier par.",
+      "b": "Incorrecta. Un dual factible da cota superior al máximo primal; la igualdad no se da en cualquier par."
+    },
+    "reference": "Guía, apartado 11",
+    "kind": "concepto"
+  },
+  {
+    "id": "dualidad-006",
+    "topic": "dualidad",
+    "difficulty": 1,
+    "prompt": "¿Qué afirma dualidad fuerte si el primal tiene óptimo finito?",
+    "options": [
+      {
+        "id": "c",
+        "text": "El dual tiene óptimo finito con igual valor"
+      },
+      {
+        "id": "a",
+        "text": "El dual es necesariamente infactible"
+      },
+      {
+        "id": "b",
+        "text": "El dual tiene el mismo vector de decisiones"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Se igualan valores óptimos, no dimensiones ni necesariamente vectores de soluciones.",
+    "rationales": {
+      "c": "Correcta. Se igualan valores óptimos, no dimensiones ni necesariamente vectores de soluciones.",
+      "a": "Incorrecta. Se igualan valores óptimos, no dimensiones ni necesariamente vectores de soluciones.",
+      "b": "Incorrecta. Se igualan valores óptimos, no dimensiones ni necesariamente vectores de soluciones."
+    },
+    "reference": "Guía, apartado 11",
+    "kind": "concepto"
+  },
+  {
+    "id": "redes-001",
+    "topic": "redes",
+    "difficulty": 1,
+    "prompt": "¿Qué representa xij en un modelo de transporte típico?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Cantidad enviada del origen i al destino j"
+      },
+      {
+        "id": "a",
+        "text": "Precio unitario de ese envío"
+      },
+      {
+        "id": "b",
+        "text": "Capacidad total del destino"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Las cantidades son decisiones; cij es coste y demanda o capacidad son datos.",
+    "rationales": {
+      "c": "Correcta. Las cantidades son decisiones; cij es coste y demanda o capacidad son datos.",
+      "a": "Incorrecta. Las cantidades son decisiones; cij es coste y demanda o capacidad son datos.",
+      "b": "Incorrecta. Las cantidades son decisiones; cij es coste y demanda o capacidad son datos."
+    },
+    "reference": "Guía, apartado 13",
+    "kind": "concepto"
+  },
+  {
+    "id": "redes-002",
+    "topic": "redes",
+    "difficulty": 1,
+    "prompt": "¿Cuál es el objetivo habitual del transporte de coste mínimo?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Minimizar Σ cij·xij"
+      },
+      {
+        "id": "a",
+        "text": "Minimizar Σ xij²"
+      },
+      {
+        "id": "b",
+        "text": "Maximizar siempre cada envío"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "El coste lineal suma coste unitario por cantidad; el cuadrado no corresponde al modelo lineal descrito.",
+    "rationales": {
+      "c": "Correcta. El coste lineal suma coste unitario por cantidad; el cuadrado no corresponde al modelo lineal descrito.",
+      "a": "Incorrecta. El coste lineal suma coste unitario por cantidad; el cuadrado no corresponde al modelo lineal descrito.",
+      "b": "Incorrecta. El coste lineal suma coste unitario por cantidad; el cuadrado no corresponde al modelo lineal descrito."
+    },
+    "reference": "Guía, apartado 13",
+    "kind": "concepto"
+  },
+  {
+    "id": "redes-003",
+    "topic": "redes",
+    "difficulty": 1,
+    "prompt": "¿Qué limita la suma de envíos desde un origen con capacidad ai?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Σj xij ≤ ai"
+      },
+      {
+        "id": "a",
+        "text": "Σj xij ≥ ai necesariamente"
+      },
+      {
+        "id": "b",
+        "text": "Cada xij = ai necesariamente"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Una capacidad máxima limita el total de salida; no obliga a agotarla salvo condición adicional.",
+    "rationales": {
+      "c": "Correcta. Una capacidad máxima limita el total de salida; no obliga a agotarla salvo condición adicional.",
+      "a": "Incorrecta. Una capacidad máxima limita el total de salida; no obliga a agotarla salvo condición adicional.",
+      "b": "Incorrecta. Una capacidad máxima limita el total de salida; no obliga a agotarla salvo condición adicional."
+    },
+    "reference": "Guía, apartado 13",
+    "kind": "concepto"
+  },
+  {
+    "id": "redes-004",
+    "topic": "redes",
+    "difficulty": 1,
+    "prompt": "¿Cómo modelar demanda mínima bj en un destino?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Σi xij ≥ bj"
+      },
+      {
+        "id": "a",
+        "text": "Σi xij ≤ bj"
+      },
+      {
+        "id": "b",
+        "text": "Σj xij ≥ ai"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Se suman entradas de todos los orígenes a un destino; un máximo permitiría no satisfacer demanda.",
+    "rationales": {
+      "c": "Correcta. Se suman entradas de todos los orígenes a un destino; un máximo permitiría no satisfacer demanda.",
+      "a": "Incorrecta. Se suman entradas de todos los orígenes a un destino; un máximo permitiría no satisfacer demanda.",
+      "b": "Incorrecta. Se suman entradas de todos los orígenes a un destino; un máximo permitiría no satisfacer demanda."
+    },
+    "reference": "Guía, apartado 13",
+    "kind": "concepto"
+  },
+  {
+    "id": "redes-005",
+    "topic": "redes",
+    "difficulty": 1,
+    "prompt": "¿Qué caracteriza una red de transporte origen-destino?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Una estructura bipartita de orígenes y destinos"
+      },
+      {
+        "id": "a",
+        "text": "Un único ciclo obligatorio"
+      },
+      {
+        "id": "b",
+        "text": "Una variable binaria por cada litro necesariamente"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Las decisiones típicas son cantidades entre ambos grupos; no requieren ciclo ni binariedad por unidad.",
+    "rationales": {
+      "c": "Correcta. Las decisiones típicas son cantidades entre ambos grupos; no requieren ciclo ni binariedad por unidad.",
+      "a": "Incorrecta. Las decisiones típicas son cantidades entre ambos grupos; no requieren ciclo ni binariedad por unidad.",
+      "b": "Incorrecta. Las decisiones típicas son cantidades entre ambos grupos; no requieren ciclo ni binariedad por unidad."
+    },
+    "reference": "Guía, apartado 13",
+    "kind": "concepto"
+  },
+  {
+    "id": "entera-001",
+    "topic": "entera",
+    "difficulty": 1,
+    "prompt": "¿Qué caracteriza la programación entera pura?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Todas las variables de decisión están sujetas a integridad"
+      },
+      {
+        "id": "a",
+        "text": "Todas las variables son libres"
+      },
+      {
+        "id": "b",
+        "text": "Solo una variable es entera y todas las demás continuas"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Pura impone integridad a todas las decisiones; no describe un modelo mixto.",
+    "rationales": {
+      "c": "Correcta. Pura impone integridad a todas las decisiones; no describe un modelo mixto.",
+      "a": "Incorrecta. Pura impone integridad a todas las decisiones; no describe un modelo mixto.",
+      "b": "Incorrecta. Pura impone integridad a todas las decisiones; no describe un modelo mixto."
+    },
+    "reference": "Guía, apartado 15",
+    "kind": "concepto"
+  },
+  {
+    "id": "entera-002",
+    "topic": "entera",
+    "difficulty": 1,
+    "prompt": "¿Qué caracteriza la programación entera mixta?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Hay variables enteras y variables continuas"
+      },
+      {
+        "id": "a",
+        "text": "Todas las variables son binarias"
+      },
+      {
+        "id": "b",
+        "text": "No hay ninguna variable entera"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "El modelo mixto combina dominios; no es binario puro ni continuo puro.",
+    "rationales": {
+      "c": "Correcta. El modelo mixto combina dominios; no es binario puro ni continuo puro.",
+      "a": "Incorrecta. El modelo mixto combina dominios; no es binario puro ni continuo puro.",
+      "b": "Incorrecta. El modelo mixto combina dominios; no es binario puro ni continuo puro."
+    },
+    "reference": "Guía, apartado 15",
+    "kind": "concepto"
+  },
+  {
+    "id": "entera-003",
+    "topic": "entera",
+    "difficulty": 1,
+    "prompt": "¿Qué dominio tiene una variable binaria?",
+    "options": [
+      {
+        "id": "c",
+        "text": "{0,1}"
+      },
+      {
+        "id": "a",
+        "text": "Todos los reales entre 0 y 1 necesariamente enteros por sí mismos"
+      },
+      {
+        "id": "b",
+        "text": "Todos los enteros no negativos"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Una binaria solo tiene dos valores; el intervalo continuo y los enteros no negativos son conjuntos mayores.",
+    "rationales": {
+      "c": "Correcta. Una binaria solo tiene dos valores; el intervalo continuo y los enteros no negativos son conjuntos mayores.",
+      "a": "Incorrecta. Una binaria solo tiene dos valores; el intervalo continuo y los enteros no negativos son conjuntos mayores.",
+      "b": "Incorrecta. Una binaria solo tiene dos valores; el intervalo continuo y los enteros no negativos son conjuntos mayores."
+    },
+    "reference": "Guía, apartado 15",
+    "kind": "concepto"
+  },
+  {
+    "id": "entera-005",
+    "topic": "entera",
+    "difficulty": 1,
+    "prompt": "¿En maximización entera, el óptimo relajado finito da qué cota?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Superior al óptimo entero"
+      },
+      {
+        "id": "a",
+        "text": "Inferior necesariamente"
+      },
+      {
+        "id": "b",
+        "text": "Ninguna relación"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "El conjunto relajado contiene al entero, por lo que su máximo no es menor.",
+    "rationales": {
+      "c": "Correcta. El conjunto relajado contiene al entero, por lo que su máximo no es menor.",
+      "a": "Incorrecta. El conjunto relajado contiene al entero, por lo que su máximo no es menor.",
+      "b": "Incorrecta. El conjunto relajado contiene al entero, por lo que su máximo no es menor."
+    },
+    "reference": "Guía, apartado 15",
+    "kind": "concepto"
+  },
+  {
+    "id": "calculo-fundamentos-001",
+    "topic": "fundamentos",
+    "difficulty": 2,
+    "prompt": "Si z = 3x + 5y y (x,y) = (2,3), ¿cuánto vale z?",
+    "options": [
+      {
+        "id": "c",
+        "text": "21"
+      },
+      {
+        "id": "a",
+        "text": "8"
+      },
+      {
+        "id": "b",
+        "text": "19"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Sustituir: z = 3·2 + 5·3 = 21. No se suman solo los coeficientes ni se intercambian las cantidades.",
+    "rationales": {
+      "c": "Correcta. Sustituir: z = 3·2 + 5·3 = 21. No se suman solo los coeficientes ni se intercambian las cantidades.",
+      "a": "Incorrecta. Sustituir: z = 3·2 + 5·3 = 21. No se suman solo los coeficientes ni se intercambian las cantidades.",
+      "b": "Incorrecta. Sustituir: z = 3·2 + 5·3 = 21. No se suman solo los coeficientes ni se intercambian las cantidades."
+    },
+    "reference": "Guía, apartado 03",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-modelos-001",
+    "topic": "modelos",
+    "difficulty": 2,
+    "prompt": "Cada producto consume 3 kg y hay 15 kg disponibles. ¿Cuál es la capacidad máxima continua?",
+    "options": [
+      {
+        "id": "c",
+        "text": "5 unidades"
+      },
+      {
+        "id": "a",
+        "text": "15 unidades"
+      },
+      {
+        "id": "b",
+        "text": "3 unidades"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "3x ≤ 15 implica x ≤ 5; no se confunde consumo por unidad con disponibilidad.",
+    "rationales": {
+      "c": "Correcta. 3x ≤ 15 implica x ≤ 5; no se confunde consumo por unidad con disponibilidad.",
+      "a": "Incorrecta. 3x ≤ 15 implica x ≤ 5; no se confunde consumo por unidad con disponibilidad.",
+      "b": "Incorrecta. 3x ≤ 15 implica x ≤ 5; no se confunde consumo por unidad con disponibilidad."
+    },
+    "reference": "Guía, apartado 04",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-formas-001",
+    "topic": "formas",
+    "difficulty": 2,
+    "prompt": "¿Cómo estandarizar 3x ≤ 5 con s ≥ 0?",
+    "options": [
+      {
+        "id": "c",
+        "text": "3x + s = 5"
+      },
+      {
+        "id": "a",
+        "text": "3x − s = 5"
+      },
+      {
+        "id": "b",
+        "text": "3x + s ≥ 5"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Una cota superior se convierte sumando s no negativa y usando igualdad; restar s expresaría una cota inferior.",
+    "rationales": {
+      "c": "Correcta. Una cota superior se convierte sumando s no negativa y usando igualdad; restar s expresaría una cota inferior.",
+      "a": "Incorrecta. Una cota superior se convierte sumando s no negativa y usando igualdad; restar s expresaría una cota inferior.",
+      "b": "Incorrecta. Una cota superior se convierte sumando s no negativa y usando igualdad; restar s expresaría una cota inferior."
+    },
+    "reference": "Guía, apartado 05",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-simplex-001",
+    "topic": "simplex",
+    "difficulty": 2,
+    "prompt": "Maximización, costes r = z−c de no básicas: x1: −3, x2: −5, x3: 0. ¿Quién entra por la regla de clase?",
+    "options": [
+      {
+        "id": "c",
+        "text": "x2"
+      },
+      {
+        "id": "a",
+        "text": "x1"
+      },
+      {
+        "id": "b",
+        "text": "x3"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Como −5 < −3 < 0, x2 tiene el coste reducido más negativo; cero no mejora marginalmente.",
+    "rationales": {
+      "c": "Correcta. Como −5 < −3 < 0, x2 tiene el coste reducido más negativo; cero no mejora marginalmente.",
+      "a": "Incorrecta. Como −5 < −3 < 0, x2 tiene el coste reducido más negativo; cero no mejora marginalmente.",
+      "b": "Incorrecta. Como −5 < −3 < 0, x2 tiene el coste reducido más negativo; cero no mejora marginalmente."
+    },
+    "reference": "Guía, apartado 08",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-artificiales-001",
+    "topic": "artificiales",
+    "difficulty": 2,
+    "prompt": "Max, base factible del original, rj = −3, yj = (0,−5). ¿Qué se detecta?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Objetivo no acotado"
+      },
+      {
+        "id": "a",
+        "text": "Infactibilidad"
+      },
+      {
+        "id": "b",
+        "text": "Óptimo único"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Hay mejora porque rj<0 y ninguna componente positiva de yj limita el paso. Se puede crecer indefinidamente.",
+    "rationales": {
+      "c": "Correcta. Hay mejora porque rj<0 y ninguna componente positiva de yj limita el paso. Se puede crecer indefinidamente.",
+      "a": "Incorrecta. Hay mejora porque rj<0 y ninguna componente positiva de yj limita el paso. Se puede crecer indefinidamente.",
+      "b": "Incorrecta. Hay mejora porque rj<0 y ninguna componente positiva de yj limita el paso. Se puede crecer indefinidamente."
+    },
+    "reference": "Guía, apartado 10",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-dualidad-001",
+    "topic": "dualidad",
+    "difficulty": 2,
+    "prompt": "Un primal tiene 3 variables y 5 restricciones. ¿Qué dimensiones tendrá el dual?",
+    "options": [
+      {
+        "id": "c",
+        "text": "5 variables y 3 restricciones"
+      },
+      {
+        "id": "a",
+        "text": "3 variables y 5 restricciones"
+      },
+      {
+        "id": "b",
+        "text": "8 variables y 5 restricciones"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Cada restricción primal da una variable dual y cada variable primal una restricción dual; se intercambian los recuentos.",
+    "rationales": {
+      "c": "Correcta. Cada restricción primal da una variable dual y cada variable primal una restricción dual; se intercambian los recuentos.",
+      "a": "Incorrecta. Cada restricción primal da una variable dual y cada variable primal una restricción dual; se intercambian los recuentos.",
+      "b": "Incorrecta. Cada restricción primal da una variable dual y cada variable primal una restricción dual; se intercambian los recuentos."
+    },
+    "reference": "Guía, apartado 11",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-fundamentos-002",
+    "topic": "fundamentos",
+    "difficulty": 2,
+    "prompt": "La venta por unidad es 14 € y el coste 4 €. Si se venden 6 unidades, ¿qué beneficio se obtiene?",
+    "options": [
+      {
+        "id": "c",
+        "text": "60"
+      },
+      {
+        "id": "a",
+        "text": "84"
+      },
+      {
+        "id": "b",
+        "text": "108"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "El margen es (10 + 4) − 4 = 10 €/unidad; el beneficio es 10·6 = 60 €, no ingresos ni venta más coste.",
+    "rationales": {
+      "c": "Correcta. El margen es (10 + 4) − 4 = 10 €/unidad; el beneficio es 10·6 = 60 €, no ingresos ni venta más coste.",
+      "a": "Incorrecta. El margen es (10 + 4) − 4 = 10 €/unidad; el beneficio es 10·6 = 60 €, no ingresos ni venta más coste.",
+      "b": "Incorrecta. El margen es (10 + 4) − 4 = 10 €/unidad; el beneficio es 10·6 = 60 €, no ingresos ni venta más coste."
+    },
+    "reference": "Guía, apartado 03",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-modelos-002",
+    "topic": "modelos",
+    "difficulty": 2,
+    "prompt": "Cada trabajador aporta 4 horas y hay 6 trabajadores intercambiables. ¿Cuál es la capacidad total?",
+    "options": [
+      {
+        "id": "c",
+        "text": "24 horas"
+      },
+      {
+        "id": "a",
+        "text": "10 horas"
+      },
+      {
+        "id": "b",
+        "text": "4 horas"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Se suman 6 aportaciones de 4 horas: 24; ni sumar los dos números ni contar solo uno calcula el total.",
+    "rationales": {
+      "c": "Correcta. Se suman 6 aportaciones de 4 horas: 24; ni sumar los dos números ni contar solo uno calcula el total.",
+      "a": "Incorrecta. Se suman 6 aportaciones de 4 horas: 24; ni sumar los dos números ni contar solo uno calcula el total.",
+      "b": "Incorrecta. Se suman 6 aportaciones de 4 horas: 24; ni sumar los dos números ni contar solo uno calcula el total."
+    },
+    "reference": "Guía, apartado 04",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-bases-002",
+    "topic": "bases",
+    "difficulty": 2,
+    "prompt": "B es diagonal con entradas (2,3) y b = (8,18). ¿Cuál es xB?",
+    "options": [
+      {
+        "id": "c",
+        "text": "(4,6)"
+      },
+      {
+        "id": "a",
+        "text": "(8,18)"
+      },
+      {
+        "id": "b",
+        "text": "(16,54)"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Se resuelve 2xB1=8 y 3xB2=18: xB=(4,6). No se usa b sin invertir ni se multiplica por B.",
+    "rationales": {
+      "c": "Correcta. Se resuelve 2xB1=8 y 3xB2=18: xB=(4,6). No se usa b sin invertir ni se multiplica por B.",
+      "a": "Incorrecta. Se resuelve 2xB1=8 y 3xB2=18: xB=(4,6). No se usa b sin invertir ni se multiplica por B.",
+      "b": "Incorrecta. Se resuelve 2xB1=8 y 3xB2=18: xB=(4,6). No se usa b sin invertir ni se multiplica por B."
+    },
+    "reference": "Guía, apartado 07",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-simplex-002",
+    "topic": "simplex",
+    "difficulty": 2,
+    "prompt": "xB = (8,18), yj = (2,3). ¿Qué paso máximo permite la regla de salida?",
+    "options": [
+      {
+        "id": "c",
+        "text": "4"
+      },
+      {
+        "id": "a",
+        "text": "6"
+      },
+      {
+        "id": "b",
+        "text": "10"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Los cocientes son 8/2=4 y 18/3=6. Se elige el menor, 4, para preservar no negatividad.",
+    "rationales": {
+      "c": "Correcta. Los cocientes son 8/2=4 y 18/3=6. Se elige el menor, 4, para preservar no negatividad.",
+      "a": "Incorrecta. Los cocientes son 8/2=4 y 18/3=6. Se elige el menor, 4, para preservar no negatividad.",
+      "b": "Incorrecta. Los cocientes son 8/2=4 y 18/3=6. Se elige el menor, 4, para preservar no negatividad."
+    },
+    "reference": "Guía, apartado 08",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-artificiales-002",
+    "topic": "artificiales",
+    "difficulty": 2,
+    "prompt": "Una fase I correctamente resuelta termina con mínimo de suma de artificiales igual a 4. ¿Qué se concluye?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Original infactible"
+      },
+      {
+        "id": "a",
+        "text": "Original óptimo con beneficio 4"
+      },
+      {
+        "id": "b",
+        "text": "Hay que aceptar las artificiales como recursos"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "El mínimo 4>0 significa que no se pueden hacer cero todas las artificiales: el original es infactible.",
+    "rationales": {
+      "c": "Correcta. El mínimo 4>0 significa que no se pueden hacer cero todas las artificiales: el original es infactible.",
+      "a": "Incorrecta. El mínimo 4>0 significa que no se pueden hacer cero todas las artificiales: el original es infactible.",
+      "b": "Incorrecta. El mínimo 4>0 significa que no se pueden hacer cero todas las artificiales: el original es infactible."
+    },
+    "reference": "Guía, apartado 10",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-entera-002",
+    "topic": "entera",
+    "difficulty": 2,
+    "prompt": "Una variable entera toma 4,6 en el óptimo relajado. ¿Qué ramas la separan correctamente?",
+    "options": [
+      {
+        "id": "c",
+        "text": "x ≤ 4 y x ≥ 5"
+      },
+      {
+        "id": "a",
+        "text": "x ≤ 4 y x ≥ 6"
+      },
+      {
+        "id": "b",
+        "text": "x = 4,6 en ambas"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Suelo=4, techo=5; excluir 5 perdería posibles soluciones enteras y mantener la fracción no ramifica correctamente.",
+    "rationales": {
+      "c": "Correcta. Suelo=4, techo=5; excluir 5 perdería posibles soluciones enteras y mantener la fracción no ramifica correctamente.",
+      "a": "Incorrecta. Suelo=4, techo=5; excluir 5 perdería posibles soluciones enteras y mantener la fracción no ramifica correctamente.",
+      "b": "Incorrecta. Suelo=4, techo=5; excluir 5 perdería posibles soluciones enteras y mantener la fracción no ramifica correctamente."
+    },
+    "reference": "Guía, apartado 15",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-fundamentos-003",
+    "topic": "fundamentos",
+    "difficulty": 2,
+    "prompt": "Para (x,y) = (1,2), ¿cuánta holgura tiene 5x + y ≤ 12?",
+    "options": [
+      {
+        "id": "c",
+        "text": "5"
+      },
+      {
+        "id": "a",
+        "text": "7"
+      },
+      {
+        "id": "b",
+        "text": "12"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "El uso es 5+2 y el límite 12; la diferencia es 5. El término independiente no es la holgura.",
+    "rationales": {
+      "c": "Correcta. El uso es 5+2 y el límite 12; la diferencia es 5. El término independiente no es la holgura.",
+      "a": "Incorrecta. El uso es 5+2 y el límite 12; la diferencia es 5. El término independiente no es la holgura.",
+      "b": "Incorrecta. El uso es 5+2 y el límite 12; la diferencia es 5. El término independiente no es la holgura."
+    },
+    "reference": "Guía, apartado 03",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-grafica-003",
+    "topic": "grafica",
+    "difficulty": 2,
+    "prompt": "Con x ≥ 7 y x ≤ 5, siendo 7>5, ¿cómo se clasifica el problema?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Infactible"
+      },
+      {
+        "id": "a",
+        "text": "Siempre óptimo único"
+      },
+      {
+        "id": "b",
+        "text": "Objetivo necesariamente no acotado"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Los límites son incompatibles: no hay x entre un mínimo 7 y un máximo 5.",
+    "rationales": {
+      "c": "Correcta. Los límites son incompatibles: no hay x entre un mínimo 7 y un máximo 5.",
+      "a": "Incorrecta. Los límites son incompatibles: no hay x entre un mínimo 7 y un máximo 5.",
+      "b": "Incorrecta. Los límites son incompatibles: no hay x entre un mínimo 7 y un máximo 5."
+    },
+    "reference": "Guía, apartado 06",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-bases-003",
+    "topic": "bases",
+    "difficulty": 2,
+    "prompt": "Una solución básica tiene xB = (0,5,7). ¿Cómo se clasifica en forma estándar?",
+    "options": [
+      {
+        "id": "c",
+        "text": "Factible y degenerada"
+      },
+      {
+        "id": "a",
+        "text": "Infactible por el cero"
+      },
+      {
+        "id": "b",
+        "text": "No degenerada por tener dos positivos"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Todas las básicas son no negativas y una es cero: factible y degenerada. Una sola básica cero basta.",
+    "rationales": {
+      "c": "Correcta. Todas las básicas son no negativas y una es cero: factible y degenerada. Una sola básica cero basta.",
+      "a": "Incorrecta. Todas las básicas son no negativas y una es cero: factible y degenerada. Una sola básica cero basta.",
+      "b": "Incorrecta. Todas las básicas son no negativas y una es cero: factible y degenerada. Una sola básica cero basta."
+    },
+    "reference": "Guía, apartado 07",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-simplex-003",
+    "topic": "simplex",
+    "difficulty": 2,
+    "prompt": "En max, rj = −5 y el paso es θ = 7. ¿Cuánto aumenta z?",
+    "options": [
+      {
+        "id": "c",
+        "text": "35"
+      },
+      {
+        "id": "a",
+        "text": "-35"
+      },
+      {
+        "id": "b",
+        "text": "5"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Δz = −rj·θ = 5·7 = 35. El signo del aumento es opuesto al coste reducido y se multiplica por el paso.",
+    "rationales": {
+      "c": "Correcta. Δz = −rj·θ = 5·7 = 35. El signo del aumento es opuesto al coste reducido y se multiplica por el paso.",
+      "a": "Incorrecta. Δz = −rj·θ = 5·7 = 35. El signo del aumento es opuesto al coste reducido y se multiplica por el paso.",
+      "b": "Incorrecta. Δz = −rj·θ = 5·7 = 35. El signo del aumento es opuesto al coste reducido y se multiplica por el paso."
+    },
+    "reference": "Guía, apartado 08",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-redes-003",
+    "topic": "redes",
+    "difficulty": 2,
+    "prompt": "Los costes de asignar dos personas a dos tareas son [[5,1],[2,7]]. ¿Qué coste mínimo tiene la asignación perfecta?",
+    "options": [
+      {
+        "id": "c",
+        "text": "3"
+      },
+      {
+        "id": "a",
+        "text": "12"
+      },
+      {
+        "id": "b",
+        "text": "1"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Hay dos permutaciones: diagonal cuesta 12 y cruzada 1+2=3. Como 12>3, la cruzada es óptima; elegir un único arco no asigna ambas personas.",
+    "rationales": {
+      "c": "Correcta. Hay dos permutaciones: diagonal cuesta 12 y cruzada 1+2=3. Como 12>3, la cruzada es óptima; elegir un único arco no asigna ambas personas.",
+      "a": "Incorrecta. Hay dos permutaciones: diagonal cuesta 12 y cruzada 1+2=3. Como 12>3, la cruzada es óptima; elegir un único arco no asigna ambas personas.",
+      "b": "Incorrecta. Hay dos permutaciones: diagonal cuesta 12 y cruzada 1+2=3. Como 12>3, la cruzada es óptima; elegir un único arco no asigna ambas personas."
+    },
+    "reference": "Guía, apartado 13",
+    "kind": "calculo"
+  },
+  {
+    "id": "calculo-entera-003",
+    "topic": "entera",
+    "difficulty": 2,
+    "prompt": "Con producción entera 0 ≤ x ≤ 12 y binaria y, se exige y=1 si y solo si x≥5. ¿Qué límite superior fuerza x≤4 cuando y=0?",
+    "options": [
+      {
+        "id": "c",
+        "text": "x ≤ 4 + 8y"
+      },
+      {
+        "id": "a",
+        "text": "x ≤ 5 + 7y"
+      },
+      {
+        "id": "b",
+        "text": "x ≤ 12 siempre"
+      }
+    ],
+    "correctId": "c",
+    "explanation": "Con y=0 debe quedar x≤4; con y=1 se permite hasta 12. Se combina además con x≥5y para el si y solo si.",
+    "rationales": {
+      "c": "Correcta. Con y=0 debe quedar x≤4; con y=1 se permite hasta 12. Se combina además con x≥5y para el si y solo si.",
+      "a": "Incorrecta. Con y=0 debe quedar x≤4; con y=1 se permite hasta 12. Se combina además con x≥5y para el si y solo si.",
+      "b": "Incorrecta. Con y=0 debe quedar x≤4; con y=1 se permite hasta 12. Se combina además con x≥5y para el si y solo si."
+    },
+    "reference": "Guía, apartado 14",
+    "kind": "calculo"
+  }
+]

@@ -1,4 +1,4 @@
-import {freshProgress,eligible,createSession,answer,finish,summary,validSession,metrics} from './engine.mjs';
+import {freshProgress,eligible,createSession,answer,finish,summary,validSession,metrics} from './engine.mjs?v=2';
 const KEY='criterio-pl-v1';
 const main=document.getElementById('main');
 const notice=document.getElementById('notice');
@@ -34,18 +34,18 @@ const graph=`<svg class="hero-figure" viewBox="0 0 240 180" role="img" aria-labe
 function home(){
  const m=metrics(progress);const pool=eligible(bank,progress,config);
  const pending=session&&!session.finished;
- const description={practice:'Responde y entiende la explicación al momento. Puedes elegir un tema o mezclar todo el bloque.',exam:'Como en un test: responde, revisa tus elecciones y consulta la corrección al finalizar.',mistakes:'Vuelve a las preguntas que fallaste. Un acierto las retira de tus pendientes.'}[config.mode];
+ const description={practice:'Responde y entiende la explicación al momento. Puedes elegir un tema o mezclar todo el bloque.',exam:'Como en un test: responde, revisa tus elecciones y consulta la corrección al finalizar.',mistakes:'Vuelve a las preguntas que fallaste. Un acierto las retira de tus pendientes.',past:`Solo las ${bank.pastExams.uniqueQuestions} preguntas únicas de las recopilaciones aportadas. Corregidas y adaptadas a tres opciones; se agrupan las repetidas.`}[config.mode];
  main.innerHTML=`
- <section class="hero" aria-labelledby="home-title"><div><p class="eyebrow">Tu mesa de estudio · Programación lineal</p><h1 id="home-title">Una sesión para<br><em>entenderlo mejor.</em></h1><p>360 preguntas explicadas, desde el primer modelo hasta la última cota.<br>Elige tu ritmo. Cada respuesta tiene algo que enseñarte.</p></div>${graph}</section>
- <div class="stats-strip" aria-label="Tu progreso"><div class="stat"><strong>${m.seen}<span style="display:inline;font-size:14px"> / 360</span></strong><span>preguntas practicadas</span></div><div class="stat"><strong>${m.attempts?m.accuracy+' %':'—'}</strong><span>aciertos históricos</span></div><div class="stat"><strong>${m.mistakes}</strong><span>fallos por repasar</span></div><button class="small-link" id="reset">Reiniciar historial</button></div>
- ${pending?`<div class="resume"><p><strong>Tu sesión sigue aquí</strong>${session.mode==='exam'?'Simulacro':'Práctica'} · pregunta ${session.index+1} de ${session.items.length} · orden conservado</p><button class="button small" id="resume">Continuar →</button></div>`:''}
+ <section class="hero" aria-labelledby="home-title"><div><p class="eyebrow">Tu mesa de estudio · Programación lineal</p><h1 id="home-title">Una sesión para<br><em>entenderlo mejor.</em></h1><p>${bank.questions.length} preguntas explicadas, desde el primer modelo hasta la última cota.<br>Elige tu ritmo. Cada respuesta tiene algo que enseñarte.</p></div>${graph}</section>
+ <div class="stats-strip" aria-label="Tu progreso"><div class="stat"><strong>${m.seen}<span style="display:inline;font-size:14px"> / ${bank.questions.length}</span></strong><span>preguntas practicadas</span></div><div class="stat"><strong>${m.attempts?m.accuracy+' %':'—'}</strong><span>aciertos históricos</span></div><div class="stat"><strong>${m.mistakes}</strong><span>fallos por repasar</span></div><button class="small-link" id="reset">Reiniciar historial</button></div>
+ ${pending?`<div class="resume"><p><strong>Tu sesión sigue aquí</strong>${session.mode==='exam'?'Simulacro':session.mode==='past'?'Exámenes anteriores':'Práctica'} · pregunta ${session.index+1} de ${session.items.length} · orden conservado</p><button class="button small" id="resume">Continuar →</button></div>`:''}
  <div class="workspace"><section class="sheet" aria-labelledby="session-title"><p class="section-label">01 · Prepara tu sesión</p><h2 id="session-title">¿Qué quieres practicar?</h2>
- <div class="mode-tabs" role="group" aria-label="Modo de estudio">${[['practice','Práctica libre'],['exam','Simulacro'],['mistakes','Mis fallos']].map(([v,t])=>`<button class="mode-tab" data-mode="${v}" aria-pressed="${v===config.mode}">${t}${v==='mistakes'&&m.mistakes?' · '+m.mistakes:''}</button>`).join('')}</div>
- <p class="mode-description">${description}</p>
+ <div class="mode-tabs" role="group" aria-label="Modo de estudio">${[['practice','Práctica libre'],['exam','Simulacro'],['mistakes','Mis fallos'],['past','Exámenes anteriores']].map(([v,t])=>`<button class="mode-tab" data-mode="${v}" aria-pressed="${v===config.mode}">${t}${v==='mistakes'&&m.mistakes?' · '+m.mistakes:''}</button>`).join('')}</div>
+ <p class="mode-description">${description}</p>${config.mode==='past'?`<p class="past-summary">${bank.pastExams.occurrences} apariciones revisadas · ${bank.pastExams.uniqueQuestions} preguntas sin repetir<br><a href="./examenes-anteriores.html" target="_blank" rel="noopener">Ver cobertura completa y correcciones ↗</a></p>`:''}
  <fieldset class="field"><legend>Contenido</legend><div class="topic-pills"><button class="pill" data-topic="all" aria-pressed="${config.topic==='all'}">Todo el bloque</button>${Object.entries(bank.topics).map(([id,name])=>`<button class="pill" data-topic="${id}" aria-pressed="${config.topic===id}">${escape(name)}</button>`).join('')}</div></fieldset>
- <div class="controls-row"><fieldset class="field"><legend>Preguntas</legend><div class="segmented">${(config.mode==='exam'?[20,30]:[10,20,30,60]).map(n=>`<button data-count="${n}" aria-pressed="${config.count===n}">${n}</button>`).join('')}</div></fieldset><fieldset class="field"><legend>Dificultad</legend><div class="segmented">${[['all','Todas'],['1','Base'],['2','Media'],['3','Reto']].map(([id,t])=>`<button data-difficulty="${id}" aria-pressed="${String(config.difficulty)===id}">${t}</button>`).join('')}</div></fieldset></div>
- <p class="available">${pool.length?`${pool.length} disponibles · sesión de ${Math.min(config.count,pool.length)} · sin repeticiones`:config.mode==='mistakes'?'No hay fallos pendientes con estos filtros. Prueba otros temas o vuelve a práctica libre.':'No hay preguntas con esta combinación. Cambia el tema o la dificultad.'}</p>
- <button class="button wide" id="start" ${!pool.length?'disabled':''}><span>${pending?'Empezar una sesión nueva':config.mode==='mistakes'?'Repasar mis fallos':config.mode==='exam'?'Empezar simulacro':'Empezar a practicar'}</span><span aria-hidden="true">↗</span></button>
+ <div class="controls-row"><fieldset class="field"><legend>Preguntas</legend><div class="segmented">${(config.mode==='exam'?[20,30]:config.mode==='past'?[10,20,30,'all']:[10,20,30,60]).map(n=>`<button data-count="${n}" aria-pressed="${config.count===n}">${n==='all'?'Todas':n}</button>`).join('')}</div></fieldset><fieldset class="field"><legend>Dificultad</legend><div class="segmented">${[['all','Todas'],['1','Base'],['2','Media'],['3','Reto']].map(([id,t])=>`<button data-difficulty="${id}" aria-pressed="${String(config.difficulty)===id}">${t}</button>`).join('')}</div></fieldset></div>
+ <p class="available">${pool.length?`${pool.length} disponibles · sesión de ${config.count==='all'?pool.length:Math.min(config.count,pool.length)} · sin repeticiones`:config.mode==='mistakes'?'No hay fallos pendientes con estos filtros. Prueba otros temas o vuelve a práctica libre.':'No hay preguntas con esta combinación. Cambia el tema o la dificultad.'}</p>
+ <button class="button wide" id="start" ${!pool.length?'disabled':''}><span>${pending?'Empezar una sesión nueva':config.mode==='mistakes'?'Repasar mis fallos':config.mode==='exam'?'Empezar simulacro':config.mode==='past'?'Practicar exámenes anteriores':'Empezar a practicar'}</span><span aria-hidden="true">↗</span></button>
  <p class="focus-note">${pending?'Empezar otra sesión sustituirá la que tienes guardada. El historial de respuestas se conserva.':'Las preguntas menos practicadas tienen prioridad. Las opciones cambian de posición en cada sesión.'}</p>
  </section>
  <aside class="aside" aria-label="Mapa de estudio"><p class="section-label">02 · Tu recorrido</p><h2>Concepto a concepto</h2>
@@ -56,26 +56,30 @@ function home(){
  el('start').onclick=()=>{session=createSession(bank,progress,config);if(session){save();navigate('session');}};
  if(pending)el('resume').onclick=()=>navigate('session');
  el('reset').onclick=()=>el('reset-dialog').showModal();
- main.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{config.mode=b.dataset.mode;if(config.mode==='exam'&&![20,30].includes(config.count))config.count=20;home();});
+ main.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{config.mode=b.dataset.mode;if(config.mode==='past'){config.topic='all';config.difficulty='all';if(![10,20,30,'all'].includes(config.count))config.count=20;}if(config.mode!=='past'&&config.count==='all')config.count=20;if(config.mode==='exam'&&![20,30].includes(config.count))config.count=20;home();});
  main.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>{config.topic=b.dataset.topic;home();});
- main.querySelectorAll('[data-count]').forEach(b=>b.onclick=()=>{config.count=Number(b.dataset.count);home();});
+ main.querySelectorAll('[data-count]').forEach(b=>b.onclick=()=>{config.count=b.dataset.count==='all'?'all':Number(b.dataset.count);home();});
  main.querySelectorAll('[data-difficulty]').forEach(b=>b.onclick=()=>{config.difficulty=b.dataset.difficulty;home();});
 }
 function currentQuestion(){return bank.questions.find(q=>q.id===session.items[session.index].questionId);}
-function reference(q){const sec=Number(q.reference.match(/apartado (\d+)/)?.[1]||3);const page={3:5,4:6,5:7,6:8,7:10,8:11,10:13,11:14,12:15,13:16,14:17,15:18}[sec]||5;return `<a class="reference" href="./guia-programacion-lineal.pdf#page=${page}" target="_blank" rel="noopener">${escape(q.reference)} · abrir PDF ↗</a>`;}
+function reference(q){const sec=Number(q.reference.match(/apartado (\d+)/)?.[1]||3);const page={3:5,4:6,5:7,6:8,7:10,8:11,9:12,10:13,11:14,12:15,13:16,14:17,15:18}[sec]||5;return `<a class="reference" href="./guia-programacion-lineal.pdf#page=${page}" target="_blank" rel="noopener">${escape(q.reference)} · abrir PDF ↗</a>`;}
+function sourceDetails(q){
+ if(!q.pastExam || !q.sources?.length)return '';
+ return `<details class="rationales provenance"><summary>Origen y correcciones · ${q.sources.length} referencia${q.sources.length===1?'':'s'}</summary><ul>${q.sources.map(s=>`<li>${escape(s.file)} · ${s.section==='extras'?'extra':'pregunta'} ${s.number} · pág. ${s.page}${s.document==='D'&&s.number>10?` · impresa como ${s.printedNumber}`:''}</li>`).join('')}</ul><p><strong>Revisión:</strong> ${escape(q.revisionNote)}</p><a href="./examenes-anteriores.html#${encodeURIComponent(q.id)}" target="_blank" rel="noopener">Ver correspondencia con las recopilaciones ↗</a></details>`;
+}
 function sessionView(){
  if(!session){navigate('home');return;}if(session.finished){screen='results';results();return;}
  const q=currentQuestion(),item=session.items[session.index],selected=session.answers[q.id],checked=session.mode!=='exam'&&session.checked[q.id];
  const options=item.optionIds.map(id=>q.options.find(o=>o.id===id));
  const responded=Object.keys(session.answers).length;
- main.innerHTML=`<div class="session-top"><button class="small-link" id="save-exit">← Guardar y salir</button><span class="session-label">${session.mode==='exam'?'Simulacro · corrección al finalizar':session.mode==='mistakes'?'Repaso de fallos':'Práctica libre'}</span></div>
+ main.innerHTML=`<div class="session-top"><button class="small-link" id="save-exit">← Guardar y salir</button><span class="session-label">${session.mode==='exam'?'Simulacro · corrección al finalizar':session.mode==='mistakes'?'Repaso de fallos':session.mode==='past'?'Exámenes anteriores':'Práctica libre'}</span></div>
  <progress max="${session.items.length}" value="${responded}" aria-label="Preguntas respondidas"></progress>
- <div class="session-layout"><div><article class="sheet question-sheet" aria-labelledby="question-title"><div class="question-meta"><span>${escape(bank.topics[q.topic])}</span><span>${difficulty[q.difficulty]} · ${session.index+1} / ${session.items.length}</span></div><h1 id="question-title">${escape(q.prompt)}</h1>
+ <div class="session-layout"><div><article class="sheet question-sheet" aria-labelledby="question-title"><div class="question-meta"><span>${escape(bank.topics[q.topic])}</span><span>${difficulty[q.difficulty]} · ${session.index+1} / ${session.items.length}</span></div>${q.pastExam?'<span class="badge past-badge">Exámenes anteriores · revisada</span>':''}<h1 id="question-title">${escape(q.prompt)}</h1>
  <fieldset class="options"><legend>Elige una respuesta</legend><div role="radiogroup" aria-labelledby="question-title">${options.map((o,i)=>{
  const isCorrect=o.id===q.correctId;const chosen=o.id===selected;let state=checked?(isCorrect?'correct':chosen?'incorrect':''):'';
  return `<button class="option ${state}" style="margin-bottom:12px" role="radio" aria-checked="${chosen}" data-answer="${o.id}" ${checked?'disabled':''}><span class="option-letter">${'ABC'[i]}</span><span>${escape(o.text)}</span>${checked&&isCorrect?'<span class="result-symbol" aria-label="Correcta">✓</span>':checked&&chosen?'<span class="result-symbol" aria-label="Incorrecta">×</span>':''}</button>`;
  }).join('')}</div></fieldset>
- ${checked?`<section class="feedback" role="status" aria-label="Corrección"><h2>${selected===q.correctId?'✓ Bien razonado.':'Vamos a aclararlo.'}</h2><p>${escape(q.explanation)}</p>${reference(q)}<details class="rationales"><summary>Por qué se descarta cada opción</summary>${options.map((o,i)=>`<p><strong>${'ABC'[i]}.</strong> ${escape(q.rationales[o.id])}</p>`).join('')}</details></section>`:session.mode==='exam'?'<p class="focus-note">Puedes cambiar tu respuesta. Las soluciones se muestran al terminar.</p>':''}
+ ${checked?`<section class="feedback" role="status" aria-label="Corrección"><h2>${selected===q.correctId?'✓ Bien razonado.':'Vamos a aclararlo.'}</h2><p>${escape(q.explanation)}</p>${reference(q)}${sourceDetails(q)}<details class="rationales"><summary>Por qué se descarta cada opción</summary>${options.map((o,i)=>`<p><strong>${'ABC'[i]}.</strong> ${escape(q.rationales[o.id])}</p>`).join('')}</details></section>`:session.mode==='exam'?'<p class="focus-note">Puedes cambiar tu respuesta. Las soluciones se muestran al terminar.</p>':''}
  </article><div class="session-actions"><button class="button secondary" id="prev" ${!session.index?'disabled':''}>← Anterior</button><div class="right">${session.index<session.items.length-1?'<button class="button secondary" id="end-early">Terminar</button>':''}<button class="button" id="next">${session.index===session.items.length-1?'Ver resultados':selected?'Siguiente →':'Dejar en blanco →'}</button></div></div></div>
  <aside><section class="sheet navigator"><h2>Tu hoja de respuestas</h2><div class="question-grid">${session.items.map((it,i)=>{
   const chosen=session.answers[it.questionId];const question=bank.questions.find(q=>q.id===it.questionId);const iswrong=session.mode!=='exam'&&session.checked[it.questionId]&&chosen!==question.correctId;
@@ -118,7 +122,7 @@ function results(){
   const q=bank.questions.find(q=>q.id===it.questionId);const chosen=session.answers[q.id];const number=session.items.indexOf(it)+1;
   return `<article class="sheet review-card"><div class="question-meta"><span>${number}. ${escape(bank.topics[q.topic])}</span><span>${!chosen?'En blanco':chosen===q.correctId?'✓ Acertada':'× Fallada'}</span></div><h3>${escape(q.prompt)}</h3>${it.optionIds.map((id,i)=>{
    const o=q.options.find(o=>o.id===id);return `<div class="review-option ${id===q.correctId?'correct':id===chosen?'incorrect':''}"><strong>${'ABC'[i]}.</strong> ${escape(o.text)} ${id===q.correctId?' · ✓ Correcta':''}${id===chosen?' · Tu respuesta':''}</div>`;
-  }).join('')}<p class="explanation">${escape(q.explanation)}</p><details class="rationales"><summary>Explicación de las tres opciones</summary>${it.optionIds.map((id,i)=>`<p><strong>${'ABC'[i]}.</strong> ${escape(q.rationales[id])}</p>`).join('')}</details>${reference(q)}</article>`;
+  }).join('')}<p class="explanation">${escape(q.explanation)}</p><details class="rationales"><summary>Explicación de las tres opciones</summary>${it.optionIds.map((id,i)=>`<p><strong>${'ABC'[i]}.</strong> ${escape(q.rationales[id])}</p>`).join('')}</details>${reference(q)}${sourceDetails(q)}</article>`;
  }).join(''):'<p class="empty">No hay fallos ni blancos en esta sesión. Puedes seguir con otro tema.</p>'}`;
  el('back-home').onclick=()=>navigate('home');
  el('retry-mistakes').onclick=()=>{config={mode:'mistakes',topic:'all',difficulty:'all',count:20};session=createSession(bank,progress,config);if(session){save();navigate('session');}};
@@ -129,8 +133,8 @@ el('nav-study').onclick=()=>{save();navigate('home');};
 el('cancel-reset').onclick=()=>el('reset-dialog').close();
 el('confirm-reset').onclick=()=>{progress=freshProgress();session=null;config={mode:'practice',topic:'all',difficulty:'all',count:20};save();el('reset-dialog').close();message(canStore?'Historial reiniciado. Tienes toda la práctica por delante.':'');navigate('home');};
 try{
- const response=await fetch('./questions.json');if(!response.ok)throw new Error('HTTP '+response.status);
- bank=await response.json();if(!Array.isArray(bank.questions)||bank.questions.length!==360)throw new Error('Banco incompleto');
+ const response=await fetch('./questions.json?v=2');if(!response.ok)throw new Error('HTTP '+response.status);
+ bank=await response.json();if(!Array.isArray(bank.questions)||bank.questions.length<360 || !bank.pastExams?.uniqueQuestions)throw new Error('Banco incompleto');
  load();render();
 }catch{
  main.innerHTML='<section class="sheet"><h1>No se ha podido cargar la práctica</h1><p>Comprueba tu conexión y vuelve a intentarlo. La guía de estudio sigue disponible.</p><button class="button" id="reload">Volver a cargar</button> <a class="button secondary" href="./guia-programacion-lineal.pdf">Abrir PDF</a></section>';

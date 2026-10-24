@@ -350,5 +350,12 @@ for e in range(3):
    ids.append(pool[e*2+1]['id'])
  random.Random(920+e).shuffle(ids)
  exam.append(ids)
-(ROOT/'study/questions.json').write_text(json.dumps({'topics':{k:v[0] for k,v in TOPICS.items()},'questions':questions,'pdfExams':exam},ensure_ascii=False,indent=2))
-print('Banco:',len(questions),'preguntas; conceptos: 200; cálculos: 160; simulacros: 3 × 20')
+# Conserva los enunciados de los simulacros del PDF ya entregado.
+pdf_ids={qid for group in exam for qid in group}
+(ROOT/'study/pdf-questions.json').write_text(json.dumps([q for q in questions if q['id'] in pdf_ids],ensure_ascii=False,indent=2))
+from import_past_exams import apply_to_bank,write_outputs
+bank=apply_to_bank({'topics':{k:v[0] for k,v in TOPICS.items()},'questions':questions,'pdfExams':exam})
+(ROOT/'study/questions.json').write_text(json.dumps(bank,ensure_ascii=False,indent=2))
+(ROOT/'web/questions.json').write_text(json.dumps(bank,ensure_ascii=False,indent=2))
+write_outputs(bank)
+print('Banco:',len(questions),'preguntas;',bank['pastExams']['occurrences'],'apariciones cubiertas en',bank['pastExams']['uniqueQuestions'],'preguntas de exámenes anteriores')

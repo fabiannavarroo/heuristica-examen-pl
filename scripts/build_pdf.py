@@ -67,7 +67,8 @@ def chart(kind):
   d.add(String(*xy(2.2,2.8),'min x = 2',fontName='StudyBold',fontSize=12,fillColor=INK));d.add(String(*xy(2.2,2),'Óptimo finito; región ilimitada',fontName='Study',fontSize=10,fillColor=INK))
  return d
 
-bank=json.loads((ROOT/'study/questions.json').read_text()); byid={q['id']:q for q in bank['questions']}
+bank=json.loads((ROOT/'study/questions.json').read_text()); snapshot=ROOT/'study/pdf-questions.json'
+byid={q['id']:q for q in (json.loads(snapshot.read_text()) if snapshot.exists() else bank['questions'])}
 exam_pages=[];exams_meta=[]
 for e,ids in enumerate(bank['pdfExams']):
  rng=random.Random(841+e);slots=[i for i in range(3) for _ in range(6+int(i!=e))];rng.shuffle(slots);items=[]

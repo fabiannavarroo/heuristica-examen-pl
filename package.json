@@ -1,1 +1,1 @@
-{"name":"criterio-programacion-lineal","version":"1.0.0","private":true,"description":"Guía y 360 preguntas de programación lineal","scripts":{"test":"node scripts/test_engine.mjs && node --check web/app.mjs","preview":"python3 -m http.server 8765 --directory web"}}
+{"name":"criterio-programacion-lineal","version":"1.1.0","private":true,"description":"Guía y 360 preguntas de programación lineal","scripts":{"test":"node scripts/test_engine.mjs && node --check web/app.mjs","preview":"python3 -m http.server 8765 --directory web"}}

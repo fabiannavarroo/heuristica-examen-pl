@@ -11,13 +11,14 @@ export function shuffle(items, random = Math.random) {
 export function eligible(bank, progress, { mode = 'practice', topic = 'all', difficulty = 'all' } = {}) {
   return bank.questions.filter(q => (topic === 'all' || q.topic === topic) &&
     (difficulty === 'all' || q.difficulty === Number(difficulty)) &&
-    (mode !== 'mistakes' || progress.questions[q.id]?.wrong));
+    (mode !== 'mistakes' || progress.questions[q.id]?.wrong) &&
+    (mode !== 'past' || q.pastExam === true));
 }
 export function createSession(bank, progress, config = {}, random = Math.random) {
   const mode = config.mode || 'practice';
   const pool = eligible(bank, progress, config);
   if (!pool.length) return null;
-  const size = Math.min(Math.max(1, Number(config.count) || 20), pool.length);
+  const size = Math.min(Math.max(1, (config.count === 'all' ? pool.length : Number(config.count)) || 20), pool.length);
   // Primero las menos practicadas; Fisher–Yates rompe empates sin sesgo estable.
   const prioritized = shuffle(pool, random).sort((a,b) =>
     (progress.questions[a.id]?.attempts || 0) - (progress.questions[b.id]?.attempts || 0));
@@ -89,7 +90,7 @@ export function summary(bank,session) {
   return {correct,wrong,blank,total:session.items.length,topics};
 }
 export function validSession(bank,s) {
-  if(!s || s.version!==VERSION || !['practice','exam','mistakes'].includes(s.mode) || !Array.isArray(s.items) || !s.items.length || s.items.length>360) return false;
+  if(!s || s.version!==VERSION || !['practice','exam','mistakes','past'].includes(s.mode) || !Array.isArray(s.items) || !s.items.length || s.items.length>bank.questions.length) return false;
   if(!Number.isInteger(s.index) || s.index<0 || s.index>=s.items.length || !s.answers || !s.checked) return false;
   const map=new Map(bank.questions.map(q=>[q.id,q]));const ids=new Set();
   return s.items.every(item=>{
