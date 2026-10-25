@@ -9,13 +9,14 @@ export function shuffle(items, random = Math.random) {
   return a;
 }
 export function eligible(bank, progress, { mode = 'practice', topic = 'all', difficulty = 'all' } = {}) {
-  return bank.questions.filter(q => (topic === 'all' || q.topic === topic) &&
-    (difficulty === 'all' || q.difficulty === Number(difficulty)) &&
+  return bank.questions.filter(q => (mode === 'complete' || topic === 'all' || q.topic === topic) &&
+    (mode === 'complete' || difficulty === 'all' || q.difficulty === Number(difficulty)) &&
     (mode !== 'mistakes' || progress.questions[q.id]?.wrong) &&
     (mode !== 'past' || q.pastExam === true));
 }
 export function createSession(bank, progress, config = {}, random = Math.random) {
   const mode = config.mode || 'practice';
+  if (mode === 'complete') config = {...config, topic:'all', difficulty:'all', count:'all'};
   const pool = eligible(bank, progress, config);
   if (!pool.length) return null;
   const size = Math.min(Math.max(1, (config.count === 'all' ? pool.length : Number(config.count)) || 20), pool.length);
@@ -90,7 +91,7 @@ export function summary(bank,session) {
   return {correct,wrong,blank,total:session.items.length,topics};
 }
 export function validSession(bank,s) {
-  if(!s || s.version!==VERSION || !['practice','exam','mistakes','past'].includes(s.mode) || !Array.isArray(s.items) || !s.items.length || s.items.length>bank.questions.length) return false;
+  if(!s || s.version!==VERSION || !['practice','exam','mistakes','past','complete'].includes(s.mode) || !Array.isArray(s.items) || !s.items.length || s.items.length>bank.questions.length) return false;
   if(!Number.isInteger(s.index) || s.index<0 || s.index>=s.items.length || !s.answers || !s.checked) return false;
   const map=new Map(bank.questions.map(q=>[q.id,q]));const ids=new Set();
   return s.items.every(item=>{

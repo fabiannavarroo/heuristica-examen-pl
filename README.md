@@ -7,6 +7,7 @@ Web de repaso personal de Heurística y Optimización: **372 preguntas**, tres o
 ## Estudiar
 
 - Práctica libre por temas y dificultad, con corrección inmediata.
+- **Práctica completa**: recorre las 372 preguntas de todos los temas y dificultades, incluidas las anteriores, una sola vez por sesión. Corrección inmediata, opciones equilibradas y guardado para continuar. El navegador de preguntas se divide en bloques de 30. [Abrir este modo](https://fabiannavarroo.github.io/heuristica-examen-pl/?mode=complete&v=3).
 - **Exámenes anteriores**: las **147 apariciones** de las cuatro recopilaciones aportadas (20 + 37 + 60 + 30, incluidos 17 extras) se agrupan en **60 preguntas únicas**, corregidas y adaptadas a tres opciones. El selector **Todas** permite recorrer las 60 sin repeticiones.
 - [Cobertura y correcciones](https://fabiannavarroo.github.io/heuristica-examen-pl/examenes-anteriores.html): correspondencia de cada pregunta original con la versión unificada, archivo, página y número. La numeración reiniciada se explica expresamente.
 - Se reutilizan 48 IDs del banco anterior y se añaden 12 preguntas que faltaban; no se crean copias adicionales de las preguntas ya presentes y el historial anterior se conserva.

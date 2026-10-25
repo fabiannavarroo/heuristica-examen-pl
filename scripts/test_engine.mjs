@@ -70,3 +70,28 @@ assert.equal(legacyProgress.questions[firstPast.id].correct,1,'Corrección inmed
 assert(validSession(bank,JSON.parse(JSON.stringify(savedPast))),'Reanudar el nuevo modo');
 assert(bank.questions.filter(q=>!q.id.startsWith('anterior-')).length===360,'No eliminar IDs del banco previo');
 console.log('Exámenes anteriores: 147 apariciones, 60 únicas, cobertura íntegra y 50 sesiones con todas, sin duplicados ni preguntas ajenas. Historial compatible.');
+
+// La práctica completa ignora cualquier filtro o tamaño heredado y conserva el banco entero.
+const fullProgress=freshProgress();
+for(const q of bank.questions)fullProgress.questions[q.id]={attempts:2,correct:1,wrong:false};
+assert.equal(eligible(bank,fullProgress,{mode:'complete',topic:'dualidad',difficulty:3}).length,bank.questions.length);
+const full=createSession(bank,fullProgress,{mode:'complete',topic:'dualidad',difficulty:3,count:20},seed(2026));
+assert.equal(full.items.length,bank.questions.length);
+assert.equal(full.topic,'all');assert.equal(full.difficulty,'all');
+assert.deepEqual(new Set(full.items.map(i=>i.questionId)),new Set(bank.questions.map(q=>q.id)));
+assert.equal(full.items.filter(i=>bank.questions.find(q=>q.id===i.questionId).pastExam).length,60);
+const fullLetters=[0,0,0];
+for(const i of full.items)fullLetters[i.optionIds.indexOf(bank.questions.find(q=>q.id===i.questionId).correctId)]++;
+assert.deepEqual(fullLetters,[124,124,124]);
+const fullFirst=bank.questions.find(q=>q.id===full.items[0].questionId);
+assert(answer(bank,fullProgress,full,fullFirst.correctId));
+assert(full.checked[fullFirst.id],'Corrección inmediata, sin esperar al final');
+assert.equal(fullProgress.questions[fullFirst.id].attempts,3);
+assert(!answer(bank,fullProgress,full,fullFirst.options.find(o=>o.id!==fullFirst.correctId).id));
+full.index=360;
+const savedFull=JSON.parse(JSON.stringify(full));assert(validSession(bank,savedFull));
+assert.equal(savedFull.index,360);assert.deepEqual(savedFull.items,full.items);
+assert.equal(savedFull.answers[fullFirst.id],fullFirst.correctId);
+finish(bank,fullProgress,savedFull);
+assert.deepEqual([summary(bank,savedFull).correct,summary(bank,savedFull).blank],[1,371]);
+console.log('Práctica completa: 372 preguntas, 60 anteriores incluidas, ninguna repetida, letras 124/124/124, corrección inmediata y reanudación.');

@@ -1,11 +1,12 @@
-import {freshProgress,eligible,createSession,answer,finish,summary,validSession,metrics} from './engine.mjs?v=2';
+import {freshProgress,eligible,createSession,answer,finish,summary,validSession,metrics} from './engine.mjs?v=3';
 const KEY='criterio-pl-v1';
 const main=document.getElementById('main');
 const notice=document.getElementById('notice');
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const difficulty={1:'Fundamentos',2:'Aplicación',3:'Reto'};
 let bank,progress=freshProgress(),session=null,screen='home';
-let config={mode:'practice',topic:'all',difficulty:'all',count:20};
+const initialMode=new URLSearchParams(location.search).get('mode')==='complete'?'complete':'practice';
+let config={mode:initialMode,topic:'all',difficulty:'all',count:initialMode==='complete'?'all':20};
 let reviewOnlyWrong=false,canStore=true;
 function message(text){notice.hidden=!text;notice.textContent=text;}
 function save(){
@@ -34,19 +35,20 @@ const graph=`<svg class="hero-figure" viewBox="0 0 240 180" role="img" aria-labe
 function home(){
  const m=metrics(progress);const pool=eligible(bank,progress,config);
  const pending=session&&!session.finished;
- const description={practice:'Responde y entiende la explicación al momento. Puedes elegir un tema o mezclar todo el bloque.',exam:'Como en un test: responde, revisa tus elecciones y consulta la corrección al finalizar.',mistakes:'Vuelve a las preguntas que fallaste. Un acierto las retira de tus pendientes.',past:`Solo las ${bank.pastExams.uniqueQuestions} preguntas únicas de las recopilaciones aportadas. Corregidas y adaptadas a tres opciones; se agrupan las repetidas.`}[config.mode];
+ const description={practice:'Responde y entiende la explicación al momento. Puedes elegir un tema o mezclar todo el bloque.',exam:'Como en un test: responde, revisa tus elecciones y consulta la corrección al finalizar.',mistakes:'Vuelve a las preguntas que fallaste. Un acierto las retira de tus pendientes.',complete:`Recorre las ${bank.questions.length} preguntas del banco en una sola práctica, con corrección inmediata. Puedes guardar y continuar cuando quieras.`,past:`Solo las ${bank.pastExams.uniqueQuestions} preguntas únicas de las recopilaciones aportadas. Corregidas y adaptadas a tres opciones; se agrupan las repetidas.`}[config.mode];
  main.innerHTML=`
  <section class="hero" aria-labelledby="home-title"><div><p class="eyebrow">Tu mesa de estudio · Programación lineal</p><h1 id="home-title">Una sesión para<br><em>entenderlo mejor.</em></h1><p>${bank.questions.length} preguntas explicadas, desde el primer modelo hasta la última cota.<br>Elige tu ritmo. Cada respuesta tiene algo que enseñarte.</p></div>${graph}</section>
  <div class="stats-strip" aria-label="Tu progreso"><div class="stat"><strong>${m.seen}<span style="display:inline;font-size:14px"> / ${bank.questions.length}</span></strong><span>preguntas practicadas</span></div><div class="stat"><strong>${m.attempts?m.accuracy+' %':'—'}</strong><span>aciertos históricos</span></div><div class="stat"><strong>${m.mistakes}</strong><span>fallos por repasar</span></div><button class="small-link" id="reset">Reiniciar historial</button></div>
- ${pending?`<div class="resume"><p><strong>Tu sesión sigue aquí</strong>${session.mode==='exam'?'Simulacro':session.mode==='past'?'Exámenes anteriores':'Práctica'} · pregunta ${session.index+1} de ${session.items.length} · orden conservado</p><button class="button small" id="resume">Continuar →</button></div>`:''}
+ ${pending?`<div class="resume"><p><strong>Tu sesión sigue aquí</strong>${session.mode==='exam'?'Simulacro':session.mode==='past'?'Exámenes anteriores':session.mode==='complete'?'Práctica completa':'Práctica'} · pregunta ${session.index+1} de ${session.items.length} · orden conservado</p><button class="button small" id="resume">Continuar →</button></div>`:''}
  <div class="workspace"><section class="sheet" aria-labelledby="session-title"><p class="section-label">01 · Prepara tu sesión</p><h2 id="session-title">¿Qué quieres practicar?</h2>
- <div class="mode-tabs" role="group" aria-label="Modo de estudio">${[['practice','Práctica libre'],['exam','Simulacro'],['mistakes','Mis fallos'],['past','Exámenes anteriores']].map(([v,t])=>`<button class="mode-tab" data-mode="${v}" aria-pressed="${v===config.mode}">${t}${v==='mistakes'&&m.mistakes?' · '+m.mistakes:''}</button>`).join('')}</div>
+ <div class="mode-tabs" role="group" aria-label="Modo de estudio">${[['practice','Práctica libre'],['exam','Simulacro'],['mistakes','Mis fallos'],['past','Exámenes anteriores'],['complete','Práctica completa']].map(([v,t])=>`<button class="mode-tab" data-mode="${v}" aria-pressed="${v===config.mode}">${t}${v==='mistakes'&&m.mistakes?' · '+m.mistakes:''}</button>`).join('')}</div>
  <p class="mode-description">${description}</p>${config.mode==='past'?`<p class="past-summary">${bank.pastExams.occurrences} apariciones revisadas · ${bank.pastExams.uniqueQuestions} preguntas sin repetir<br><a href="./examenes-anteriores.html" target="_blank" rel="noopener">Ver cobertura completa y correcciones ↗</a></p>`:''}
- <fieldset class="field"><legend>Contenido</legend><div class="topic-pills"><button class="pill" data-topic="all" aria-pressed="${config.topic==='all'}">Todo el bloque</button>${Object.entries(bank.topics).map(([id,name])=>`<button class="pill" data-topic="${id}" aria-pressed="${config.topic===id}">${escape(name)}</button>`).join('')}</div></fieldset>
+ ${config.mode==='complete'?`<p class="past-summary"><strong>${bank.questions.length} preguntas · todos los temas y dificultades</strong><br>Incluye las ${bank.pastExams.uniqueQuestions} de exámenes anteriores. Cada pregunta aparece una vez en esta sesión, con opciones barajadas y explicaciones al responder.</p>`:` <fieldset class="field"><legend>Contenido</legend><div class="topic-pills"><button class="pill" data-topic="all" aria-pressed="${config.topic==='all'}">Todo el bloque</button>${Object.entries(bank.topics).map(([id,name])=>`<button class="pill" data-topic="${id}" aria-pressed="${config.topic===id}">${escape(name)}</button>`).join('')}</div></fieldset>
  <div class="controls-row"><fieldset class="field"><legend>Preguntas</legend><div class="segmented">${(config.mode==='exam'?[20,30]:config.mode==='past'?[10,20,30,'all']:[10,20,30,60]).map(n=>`<button data-count="${n}" aria-pressed="${config.count===n}">${n==='all'?'Todas':n}</button>`).join('')}</div></fieldset><fieldset class="field"><legend>Dificultad</legend><div class="segmented">${[['all','Todas'],['1','Base'],['2','Media'],['3','Reto']].map(([id,t])=>`<button data-difficulty="${id}" aria-pressed="${String(config.difficulty)===id}">${t}</button>`).join('')}</div></fieldset></div>
+`}
  <p class="available">${pool.length?`${pool.length} disponibles · sesión de ${config.count==='all'?pool.length:Math.min(config.count,pool.length)} · sin repeticiones`:config.mode==='mistakes'?'No hay fallos pendientes con estos filtros. Prueba otros temas o vuelve a práctica libre.':'No hay preguntas con esta combinación. Cambia el tema o la dificultad.'}</p>
- <button class="button wide" id="start" ${!pool.length?'disabled':''}><span>${pending?'Empezar una sesión nueva':config.mode==='mistakes'?'Repasar mis fallos':config.mode==='exam'?'Empezar simulacro':config.mode==='past'?'Practicar exámenes anteriores':'Empezar a practicar'}</span><span aria-hidden="true">↗</span></button>
- <p class="focus-note">${pending?'Empezar otra sesión sustituirá la que tienes guardada. El historial de respuestas se conserva.':'Las preguntas menos practicadas tienen prioridad. Las opciones cambian de posición en cada sesión.'}</p>
+ <button class="button wide" id="start" ${!pool.length?'disabled':''}><span>${pending?'Empezar una sesión nueva':config.mode==='mistakes'?'Repasar mis fallos':config.mode==='exam'?'Empezar simulacro':config.mode==='past'?'Practicar exámenes anteriores':config.mode==='complete'?`Practicar las ${bank.questions.length} preguntas`:'Empezar a practicar'}</span><span aria-hidden="true">↗</span></button>
+ <p class="focus-note">${pending?'Empezar otra sesión sustituirá la que tienes guardada. El historial de respuestas se conserva.':config.mode==='complete'?'La sesión se guarda en este navegador. Usa «Guardar y salir» para retomarla sin perder el orden ni las respuestas.':'Las preguntas menos practicadas tienen prioridad. Las opciones cambian de posición en cada sesión.'}</p>
  </section>
  <aside class="aside" aria-label="Mapa de estudio"><p class="section-label">02 · Tu recorrido</p><h2>Concepto a concepto</h2>
  ${Object.entries(bank.topics).map(([id,name])=>{const all=bank.questions.filter(q=>q.topic===id);const seen=all.filter(q=>progress.questions[q.id]?.attempts).length;return `<div class="topic-row"><div class="topic-info"><span>${escape(name)}</span><small>${seen} / ${all.length}</small></div><div class="topic-track" role="progressbar" aria-label="${escape(name)} practicadas" aria-valuenow="${seen}" aria-valuemin="0" aria-valuemax="${all.length}"><span style="width:${seen/all.length*100}%"></span></div></div>`;}).join('')}
@@ -56,7 +58,7 @@ function home(){
  el('start').onclick=()=>{session=createSession(bank,progress,config);if(session){save();navigate('session');}};
  if(pending)el('resume').onclick=()=>navigate('session');
  el('reset').onclick=()=>el('reset-dialog').showModal();
- main.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{config.mode=b.dataset.mode;if(config.mode==='past'){config.topic='all';config.difficulty='all';if(![10,20,30,'all'].includes(config.count))config.count=20;}if(config.mode!=='past'&&config.count==='all')config.count=20;if(config.mode==='exam'&&![20,30].includes(config.count))config.count=20;home();});
+ main.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{config.mode=b.dataset.mode;if(config.mode==='complete'){config.topic='all';config.difficulty='all';config.count='all';}if(config.mode==='past'){config.topic='all';config.difficulty='all';if(![10,20,30,'all'].includes(config.count))config.count=20;}if(!['past','complete'].includes(config.mode)&&config.count==='all')config.count=20;if(config.mode==='exam'&&![20,30].includes(config.count))config.count=20;home();});
  main.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>{config.topic=b.dataset.topic;home();});
  main.querySelectorAll('[data-count]').forEach(b=>b.onclick=()=>{config.count=b.dataset.count==='all'?'all':Number(b.dataset.count);home();});
  main.querySelectorAll('[data-difficulty]').forEach(b=>b.onclick=()=>{config.difficulty=b.dataset.difficulty;home();});
@@ -72,7 +74,10 @@ function sessionView(){
  const q=currentQuestion(),item=session.items[session.index],selected=session.answers[q.id],checked=session.mode!=='exam'&&session.checked[q.id];
  const options=item.optionIds.map(id=>q.options.find(o=>o.id===id));
  const responded=Object.keys(session.answers).length;
- main.innerHTML=`<div class="session-top"><button class="small-link" id="save-exit">← Guardar y salir</button><span class="session-label">${session.mode==='exam'?'Simulacro · corrección al finalizar':session.mode==='mistakes'?'Repaso de fallos':session.mode==='past'?'Exámenes anteriores':'Práctica libre'}</span></div>
+ const pageSize=session.items.length>60?30:session.items.length;
+ const blockStart=Math.floor(session.index/pageSize)*pageSize;
+ const blockEnd=Math.min(blockStart+pageSize,session.items.length);
+ main.innerHTML=`<div class="session-top"><button class="small-link" id="save-exit">← Guardar y salir</button><span class="session-label">${session.mode==='exam'?'Simulacro · corrección al finalizar':session.mode==='mistakes'?'Repaso de fallos':session.mode==='past'?'Exámenes anteriores':session.mode==='complete'?'Práctica completa':'Práctica libre'}</span></div>
  <progress max="${session.items.length}" value="${responded}" aria-label="Preguntas respondidas"></progress>
  <div class="session-layout"><div><article class="sheet question-sheet" aria-labelledby="question-title"><div class="question-meta"><span>${escape(bank.topics[q.topic])}</span><span>${difficulty[q.difficulty]} · ${session.index+1} / ${session.items.length}</span></div>${q.pastExam?'<span class="badge past-badge">Exámenes anteriores · revisada</span>':''}<h1 id="question-title">${escape(q.prompt)}</h1>
  <fieldset class="options"><legend>Elige una respuesta</legend><div role="radiogroup" aria-labelledby="question-title">${options.map((o,i)=>{
@@ -81,10 +86,13 @@ function sessionView(){
  }).join('')}</div></fieldset>
  ${checked?`<section class="feedback" role="status" aria-label="Corrección"><h2>${selected===q.correctId?'✓ Bien razonado.':'Vamos a aclararlo.'}</h2><p>${escape(q.explanation)}</p>${reference(q)}${sourceDetails(q)}<details class="rationales"><summary>Por qué se descarta cada opción</summary>${options.map((o,i)=>`<p><strong>${'ABC'[i]}.</strong> ${escape(q.rationales[o.id])}</p>`).join('')}</details></section>`:session.mode==='exam'?'<p class="focus-note">Puedes cambiar tu respuesta. Las soluciones se muestran al terminar.</p>':''}
  </article><div class="session-actions"><button class="button secondary" id="prev" ${!session.index?'disabled':''}>← Anterior</button><div class="right">${session.index<session.items.length-1?'<button class="button secondary" id="end-early">Terminar</button>':''}<button class="button" id="next">${session.index===session.items.length-1?'Ver resultados':selected?'Siguiente →':'Dejar en blanco →'}</button></div></div></div>
- <aside><section class="sheet navigator"><h2>Tu hoja de respuestas</h2><div class="question-grid">${session.items.map((it,i)=>{
+ <aside><section class="sheet navigator"><h2>Tu hoja de respuestas</h2>${session.items.length>60?`<p class="navigator-range">Preguntas ${blockStart+1}–${blockEnd} de ${session.items.length}</p>`:''}<div class="question-grid">${session.items.slice(blockStart,blockEnd).map((it,offset)=>{
+  const i=blockStart+offset;
   const chosen=session.answers[it.questionId];const question=bank.questions.find(q=>q.id===it.questionId);const iswrong=session.mode!=='exam'&&session.checked[it.questionId]&&chosen!==question.correctId;
   return `<button data-index="${i}" class="${i===session.index?'current ':''}${chosen?'answered ':''}${iswrong?'wrong':''}" aria-label="Pregunta ${i+1}${chosen?', respondida':', en blanco'}" ${i===session.index?'aria-current="step"':''}>${i+1}</button>`;
- }).join('')}</div><p><strong>${responded} de ${session.items.length}</strong> respondidas.<br>Puedes volver a cualquier pregunta desde aquí.</p><p>${session.mode==='exam'?'El color indica que has respondido, sin revelar si has acertado.':'Verde: acertada. Rojo: fallada. Sin color: pendiente.'}</p></section><div class="scratch">${session.mode==='exam'?'Lee las hipótesis.<br>Comprueba las unidades.<br>Revisa antes de terminar.':'rⱼ = zⱼ − cⱼ<br>Δz = −rⱼ · θ<br>Una regla, un paso cada vez.'}</div></aside></div>`;
+ }).join('')}</div>${session.items.length>60?`<div class="block-navigation"><button id="previous-block" class="button secondary small" ${blockStart===0?'disabled':''} aria-label="Ir al bloque anterior">← Bloque</button><button id="next-block" class="button secondary small" ${blockEnd===session.items.length?'disabled':''} aria-label="Ir al bloque siguiente">Bloque →</button></div>`:''}<p><strong>${responded} de ${session.items.length}</strong> respondidas.<br>Puedes volver a cualquier pregunta desde aquí.</p><p>${session.mode==='exam'?'El color indica que has respondido, sin revelar si has acertado.':'Verde: acertada. Rojo: fallada. Sin color: pendiente.'}</p></section><div class="scratch">${session.mode==='exam'?'Lee las hipótesis.<br>Comprueba las unidades.<br>Revisa antes de terminar.':'rⱼ = zⱼ − cⱼ<br>Δz = −rⱼ · θ<br>Una regla, un paso cada vez.'}</div></aside></div>`;
+ if(el('previous-block'))el('previous-block').onclick=()=>{session.index=Math.max(0,blockStart-pageSize);save();sessionView();focusMain();};
+ if(el('next-block'))el('next-block').onclick=()=>{session.index=blockEnd;save();sessionView();focusMain();};
  el('save-exit').onclick=()=>{save();navigate('home');};
  el('prev').onclick=()=>{session.index--;save();sessionView();focusMain();};
  el('next').onclick=()=>{if(session.index===session.items.length-1){finish(bank,progress,session);save();navigate('results');}else{session.index++;save();sessionView();focusMain();}};
@@ -133,7 +141,7 @@ el('nav-study').onclick=()=>{save();navigate('home');};
 el('cancel-reset').onclick=()=>el('reset-dialog').close();
 el('confirm-reset').onclick=()=>{progress=freshProgress();session=null;config={mode:'practice',topic:'all',difficulty:'all',count:20};save();el('reset-dialog').close();message(canStore?'Historial reiniciado. Tienes toda la práctica por delante.':'');navigate('home');};
 try{
- const response=await fetch('./questions.json?v=2');if(!response.ok)throw new Error('HTTP '+response.status);
+ const response=await fetch('./questions.json?v=3');if(!response.ok)throw new Error('HTTP '+response.status);
  bank=await response.json();if(!Array.isArray(bank.questions)||bank.questions.length<360 || !bank.pastExams?.uniqueQuestions)throw new Error('Banco incompleto');
  load();render();
 }catch{
